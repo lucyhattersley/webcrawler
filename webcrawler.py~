@@ -1,0 +1,40 @@
+# This creates a 'links.txt' file containing all html links in a webpage
+# NEXT STEP
+# Open a child link as a second soup
+
+
+
+from bs4 import BeautifulSoup
+import urllib2
+
+# creates output file in same directory
+f = open('links.txt', "w+")
+
+# target webpage
+webpage = 'http://news.bbc.co.uk'
+request = urllib2.Request(webpage)
+links = []
+
+# Gets content from web page and passes it into a soup object
+response = urllib2.urlopen(request)
+soup = BeautifulSoup(response)
+
+# Finds all links in page and appends to links list
+for link in soup.find_all('a'):
+    links.append(link.get('href'))
+#    print(link.get('href')) # used to test links
+
+
+# Writes each link to file
+for link in links:
+        if link[0] == '#': #removes anchors
+            pass
+	elif link[0] == '/': #adds full url to children
+		newlink = webpage + link
+		f.write(newlink)
+		f.write('\n')
+	else:
+		f.write(link)
+		f.write('\n')
+
+f.close()
