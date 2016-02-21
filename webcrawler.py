@@ -11,13 +11,12 @@ def write_to_file(page_links):
     Iterates through page_links and checks to see if the link is not already in the file (if not, writes the link to the end of the file)
     Does not return anything
     """
-    all_links = open('all_links.txt', "a")
-    for link in page_links:
-        if link not in open('all_links.txt').read(): #prevents duplicates 
-            all_links.write(link)
-            all_links.write('\n')
-    # Close links file 
-    all_links.close()
+    with open('all_links.txt', "a") as all_links:
+        for link in page_links:
+            if link not in open('all_links.txt').read(): #prevents duplicates 
+                all_links.write(link)
+                all_links.write('\n') 
+        all_links.close()
 
     return
 
@@ -30,6 +29,8 @@ def scan_for_links(soup):
     page_links = []
 
     # Finds all links in page
+    # THIS NEEDS TO SORT OUT HTTP://WWW PROBLEM. SO IS GOING TO BE EVEN CLUMSIER.
+    # PERHAPS FIGURE OUT WAY TO TIDY THIS UP WHILST FIXING URL PROBLEM
     # THIS IS CLUNKY CONSIER PUTTING ANCHORS AND RELATIVE URLS INTO SEPARATE FUNCTION
     for link in soup.find_all('a'):
         linkstring = (str(link.get('href'))) #typecast to string
@@ -55,9 +56,10 @@ def find_internal_links(page_links, webpage):
     """
     internal_links = []
 
+    # NEED TO FIGURE OUT A WAY TO STRIP URL CHECK DOWN TO BASE PART. IE: LADYWELLTAVERN.COM.
     for link in page_links:
         if link[:len(webpage)] == webpage:
-            internal_links.append(link) 
+            internal_links.append(link)
     return internal_links
 
 def get_soup(webpage):
@@ -72,7 +74,8 @@ def get_soup(webpage):
     soup = BeautifulSoup(response, "html.parser")
     return soup
 
-# This has an error. It keeps adding start URL to pagestracked list
+# HAVE FIGURED OUT ERROR. DON'T KNOW HOW TO FIX. SOME WEBSITES USE http://www.url.com and some use http://url.com. And mix and match in the HTML.
+# FIGURE OUT WAY TO SPOT LACK OF WWW AND ADD.
 # Start page (this will be added to command line eventually)
 start = 'http://www.ladywelltavern.com'
 
@@ -84,22 +87,18 @@ pages_tracked = []
 
 count = 0 # visual count of pages tracked (is displayed to console)
 
-while len(pages_tracked) < 5 or len(pages_to_track) != 0:
-
-    if webpage not in pages_tracked:
-        pages_tracked.append(webpage) # keeps track of pages
-
-    webpage = pages_to_track.pop(0)
-
+while len(pages_tracked) < 3 and len(pages_to_track) > 0:
+    
     try:
         soup = get_soup(webpage)
         page_links = scan_for_links(soup)
+
         write_to_file(page_links)
 
-        new_pages_found = find_internal_links(page_links, webpage)
+        internal_links = find_internal_links(page_links, start)
 
-        for page in new_pages_found:
-            if page not in pages_to_track:
+        for page in internal_links:
+            if page not in pages_tracked or page not in pages_to_track:
                 pages_to_track.append(page)
                 with open('pages_to_track.txt', 'a') as f:
                     f.write(page)
@@ -110,3 +109,5 @@ while len(pages_tracked) < 5 or len(pages_to_track) != 0:
 
     except:
         pass # skips pages that don't respond
+    pages_tracked.append(webpage)
+    webpage = pages_to_track.pop(0)
