@@ -48,20 +48,6 @@ def scan_for_links(soup):
 
     return page_links
 
-def find_internal_links(page_links, webpage):
-    """
-    Accepts page_links (a list) containing URLs and a single webpage
-    Iterates through page links and amends links that match the webpage to internal links (a list)
-    Returns internal_links
-    """
-    internal_links = []
-
-    # NEED TO FIGURE OUT A WAY TO STRIP URL CHECK DOWN TO BASE PART. IE: LADYWELLTAVERN.COM.
-    for link in page_links:
-        if link[:len(webpage)] == webpage:
-            internal_links.append(link)
-    return internal_links
-
 def get_soup(webpage):
     """
     Accepts webpage (a string) containing a URL
@@ -74,28 +60,57 @@ def get_soup(webpage):
     soup = BeautifulSoup(response, "html.parser")
     return soup
 
-# HAVE FIGURED OUT ERROR. DON'T KNOW HOW TO FIX. SOME WEBSITES USE http://www.url.com and some use http://url.com. And mix and match in the HTML.
-# FIGURE OUT WAY TO SPOT LACK OF WWW AND ADD.
-# Start page (this will be added to command line eventually)
+def find_internal_links(page_links, webpage, domain):
+    """
+    Accepts page_links (a list) containing URLs and a single webpage
+    Iterates through page links and amends links that match the webpage to internal links (a list)
+    Returns internal_links
+    """
+    internal_links = []
+
+    for link in page_links:
+        if find_domain(link) == domain:
+            internal_links.append(link)
+    return internal_links
+
+def find_domain(webpage):
+    """
+    Accepts webpage (a string) and removes the Protocol, Subdomain and Path. Returns domain (a string).
+    EX: if webpage is "http://news.google.com/world" then domain is "google.com"
+    """
+    domain = ''
+
+    start = False
+    stop = False
+    for c in webpage:
+        if start == True and c == '/': # Finds the first '/' after the dots and stops adding chars to domain
+            stop = True
+        if start == True and stop == False:
+            domain = domain + c # between stop and start so it doesn't add the '.' and '/' to domain
+        if c == '.': # finds the first '.' in the URL and then starts adding chars to domain
+            start = True
+    return domain
+
 start = 'http://www.ladywelltavern.com'
+domain = find_domain(start)
 
 #set up tracking lists
 pages_to_track = []
-webpage = start
-pages_to_track.append(webpage)
+pages_to_track.append(start)
 pages_tracked = []
 
 count = 0 # visual count of pages tracked (is displayed to console)
 
-while len(pages_tracked) < 3 and len(pages_to_track) > 0:
+while len(pages_tracked) < 100 and len(pages_to_track) > 0:
     
     try:
+        webpage = pages_to_track.pop(0)
         soup = get_soup(webpage)
         page_links = scan_for_links(soup)
 
         write_to_file(page_links)
 
-        internal_links = find_internal_links(page_links, start)
+        internal_links = find_internal_links(page_links, webpage, domain)
 
         for page in internal_links:
             if page not in pages_tracked or page not in pages_to_track:
@@ -110,4 +125,3 @@ while len(pages_tracked) < 3 and len(pages_to_track) > 0:
     except:
         pass # skips pages that don't respond
     pages_tracked.append(webpage)
-    webpage = pages_to_track.pop(0)
