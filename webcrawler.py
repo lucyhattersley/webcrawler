@@ -22,30 +22,28 @@ def write_to_file(page_links):
 
 def scan_for_links(soup):
     """
-    Takes a soup object (containing a web page response).
+    NOTE! THIS CODE IS STILL SCRAPPY. CONSIDER FIXING RELATIVE URLS IN A SEPARATE AREA / FUNCTION
+    Takes soup (a Beautiful Soup object containing a web page response) and current_page (a string).
+    current_page is required to add in front of relative URLs 
     Finds all  links and adds to page_links (a list)
     Returns page_links
     """
     page_links = []
 
-    # Finds all links in page
-    # THIS NEEDS TO SORT OUT HTTP://WWW PROBLEM. SO IS GOING TO BE EVEN CLUMSIER.
-    # PERHAPS FIGURE OUT WAY TO TIDY THIS UP WHILST FIXING URL PROBLEM
-    # THIS IS CLUNKY CONSIER PUTTING ANCHORS AND RELATIVE URLS INTO SEPARATE FUNCTION
-    for link in soup.find_all('a'):
-        linkstring = (str(link.get('href'))) #typecast to string
-        if linkstring != '' and linkstring[0] == '#': # skips anchors
+    for soup_link in soup.find_all('a'):
+        link = (str(soup_link.get('href'))) #typecast soup_link to string
+        if link == '' or link[0] == '#': # skips blanks and anchors
             pass
-        elif linkstring != '' and linkstring [0] == '/': # Checks for relative URLs
-            if webpage[-1:] == '/':
-                newlink = webpage[:-1] + linkstring # If relative URL ends in a '/' - removes it so you don't get '//' in newlink
+        elif link[0] == '/': # Checks for relative URLs
+            if link[-1:] == '/':
+                newlink = start_page[:-1] + link # If relative URL ends in a '/' - removes it so you don't get '//' in newlink
             else:
-                newlink = webpage + linkstring # places base webpage in front of relative URL to form a full link
+                newlink = start_page + link # places base webpage in front of relative URL to form a full link
         else:
-            newlink = linkstring
+            newlink = link
         if newlink not in page_links:
             page_links.append(newlink)
-
+    print "Page links: " + str(page_links)
     return page_links
 
 def get_soup(webpage):
@@ -69,7 +67,7 @@ def find_internal_links(page_links, webpage, domain):
     internal_links = []
 
     for link in page_links:
-        if find_domain(link) == domain:
+        if is_internal(webpage, domain):
             internal_links.append(link)
     return internal_links
 
@@ -78,25 +76,25 @@ def find_domain(webpage):
     Accepts webpage (a string) and removes the Protocol, Subdomain and Path. Returns domain (a string).
     EX: if webpage is "http://news.google.com/world" then domain is "google.com"
     """
-    domain = ''
+    return webpage.split('/')[2]
 
-    start = False
-    stop = False
-    for c in webpage:
-        if start == True and c == '/': # Finds the first '/' after the dots and stops adding chars to domain
-            stop = True
-        if start == True and stop == False:
-            domain = domain + c # between stop and start so it doesn't add the '.' and '/' to domain
-        if c == '.': # finds the first '.' in the URL and then starts adding chars to domain
-            start = True
-    return domain
+def is_internal(webpage, start_page):
+    """
+    Checks webpage (a string representing a URL) against the startpage (a string, representing a URL)
+    Strips both down to find the domain
+    Returns true if they are from the same domain 
+    """
+    webpage_dom = find_domain(webpage)
+    print "webpage_dom is: " + webpage_dom
+    startpage_dom = find_domain(start_page)
+    print "startpage_dom is: " + start_page_dom
 
-start = 'http://www.ladywelltavern.com'
-domain = find_domain(start)
+    return webpage_dom in start_page_dom or start_page_dom in webpage_dom
+
+start_page = 'http://www.ladywelltavern.com'
 
 #set up tracking lists
-pages_to_track = []
-pages_to_track.append(start)
+pages_to_track = [start_page]
 pages_tracked = []
 
 count = 0 # visual count of pages tracked (is displayed to console)
@@ -104,13 +102,12 @@ count = 0 # visual count of pages tracked (is displayed to console)
 while len(pages_tracked) < 100 and len(pages_to_track) > 0:
     
     try:
-        webpage = pages_to_track.pop(0)
-        soup = get_soup(webpage)
-        page_links = scan_for_links(soup)
+        current_page = pages_to_track.pop(0)
+        soup = get_soup(current_page)
 
+        page_links = scan_for_links(soup, current_page)
         write_to_file(page_links)
-
-        internal_links = find_internal_links(page_links, webpage, domain)
+        internal_links = find_internal_links(page_links, current_page, start_page)
 
         for page in internal_links:
             if page not in pages_tracked or page not in pages_to_track:
@@ -124,4 +121,5 @@ while len(pages_tracked) < 100 and len(pages_to_track) > 0:
 
     except:
         pass # skips pages that don't respond
-    pages_tracked.append(webpage)
+    
+    pages_tracked.append(current_page)
