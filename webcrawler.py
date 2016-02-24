@@ -80,28 +80,32 @@ def is_internal(link, start_page):
         return False # returns False if link not valid
 
 def is_valid(link):
-    pass
     """
-    I NEED A FUNCTION THAT CHECKS IF LINKS ARE VALID
+    NOTE: THIS CHECKS VALID LINKS BUT BASE URLS (IE: WWW.BBC.CO.UK) WILL FAIL. FIGURE OUT FIX
+    PERHAPS ENSURE ALL BASE LINKS HAVE '/' AT END?
     """
-    # checks for links that are empty
-    # checks for links that start with "#"
-    # checks if link is a jpg (or image file). Link needs to be folder or html
-    # Link needs to start with http (not feed or ftp etc)
-    # Checks for share links ending in ?share=
-    # returns True or False
+    valid_extensions = ['asp', 'htm', 'html', 'js', 'jsp', 'php', 'xhtml', '/']
+
+    if link == '' or link[0] == '#' or link[0] == '?':
+        return False 
+
+    for extension in valid_extensions:
+        if link[-len(extension):] == extension:
+            print extension
+            print link[-len(extension):]
+            return True
+    return False
 
 
 def expand_link(link, start_page):
-    pass
     """
     This function needs to expand relative links to full domain links so they can be added to the to_track list (and work)
     Relative links start with a '/' 
     Strips "/" from end of start_page
     Adds start_page and link together
     Returns valid link
-
     """
+    pass
  
 start_page = 'http://www.ladywelltavern.com'
 
@@ -111,7 +115,7 @@ pages_tracked = []
 
 count = 0 # visual count of pages tracked (is displayed to console)
 
-while count < 50 and len(pages_to_track) > 0:
+while count < 0 and len(pages_to_track) > 0:
     
     try:
         current_page = pages_to_track.pop(0)
@@ -135,5 +139,5 @@ while count < 50 and len(pages_to_track) > 0:
         pages_tracked.append(current_page)
 
     with open('pages_tracked', 'a') as f:
-        f.write(pages_tracked)
+        f.write(str(pages_tracked))
         f.close()
