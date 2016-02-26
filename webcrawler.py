@@ -74,9 +74,10 @@ def is_internal(link, start_page):
     try: 
         link_domain = find_domain(link)
         start_page_domain = find_domain(start_page)
-        # check uses 'or' to see if either domain fits inside the other.
-        # this ensures that google.com and www.google.com match regardless of which way around they are
         return link_domain in start_page_domain or start_page_domain in link_domain
+        # Uses 'or' to see if either domain fits inside the other.
+        # this ensures that google.com and www.google.com match regardless of which way around they are
+
     except:
         return False # if link not valid
 
