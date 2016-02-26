@@ -36,8 +36,8 @@ def get_soup(webpage):
     """
     Accepts webpage [string] containing a URL
     Uses urllib2 to generate a request and respone.
-    Creates a soup object from the response using html.parser
-    Returns soup (a Beautiful Soup object)
+    Creates a soup [Beautiful Soup instance] from the response using html.parser
+    Returns soup
     """
     request = urllib2.Request(webpage)
     response = urllib2.urlopen(request)
@@ -82,11 +82,9 @@ def is_internal(link, start_page):
 
 def is_valid(link):
     """
-    NOTE: THIS CHECKS VALID LINKS BUT BASE URLS (IE: WWW.BBC.CO.UK) WILL FAIL. FIGURE OUT FIX
-    PERHAPS ENSURE ALL BASE LINKS HAVE '/' AT END?
     Accepts link [string]
     Checks if end of link matches items in valid_extensions [list]
-    Returns True if link matches valid_extensions or False if not.
+    Returns True if link matches valid_extensions
     """
     valid_extensions = ['asp', 'htm', 'html', 'js', 'jsp', 'php', 'xhtml', '/']
     skip_protocols = ['feed' 'ftp', 'rss']
