@@ -112,7 +112,7 @@ def expand_link(link, start_page):
     Adds start_page and link together
     Returns valid link
     """
-    pass
+    if link[:] == [/]
  
 start_page = 'http://www.ladywelltavern.com'
 
