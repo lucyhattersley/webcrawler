@@ -106,15 +106,22 @@ def is_valid(link):
 
 def expand_link(link, start_page):
     """
-    This function needs to expand relative links to full domain links so they can be added to the to_track list (and work)
-    Relative links start with a '/' 
-    Strips "/" from end of start_page
-    Adds start_page and link together
-    Returns valid link
+    Accepts link [string] and start_page [string] both containing URLs
+    If link starts with a '/' (relative link) and adds start page to new_link [string] to create absolute path
+        Else if start_page [string] ends in '/',  strips the '/' it to prevent duplicate in path
+    Returns new_link
     """
-    if link[:] == [/]
+    if link[0] == '/':
+        if start_page[-1:] == '/':
+            new_link = start_page[:-1] + link # If relative URL ends in a '/' - removes it so you don't get '//' in newlink
+        else:
+            new_link = start_page + link
+    else:
+        new_link = link
+        
+    return new_link
  
-start_page = 'http://www.ladywelltavern.com'
+start_page = 'http://news.bbc.co.uk'
 
 #set up tracking lists
 pages_to_track = [start_page]
@@ -131,6 +138,7 @@ while count < 10 and len(pages_to_track) > 0:
         write_to_file(page_links)
         internal_links = find_internal_links(page_links, start_page)
         for page in internal_links:
+            page = expand_link(page, start_page)
             if page not in pages_tracked and page not in pages_to_track:
                 if is_valid(page):
                     pages_to_track.append(page)
