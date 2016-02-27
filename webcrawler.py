@@ -74,6 +74,8 @@ def is_internal(link, start_page):
     try: 
         link_domain = find_domain(link)
         start_page_domain = find_domain(start_page)
+        print link
+        print link_domain in start_page_domain or start_page_domain in link_domain
         return link_domain in start_page_domain or start_page_domain in link_domain
         # Uses 'or' to see if either domain fits inside the other.
         # this ensures that google.com and www.google.com match regardless of which way around they are
@@ -84,23 +86,27 @@ def is_internal(link, start_page):
 def is_valid(link):
     """
     Accepts link [string]
-    Checks if end of link matches items in valid_extensions [list]
-    Returns True if link matches valid_extensions
+    Checks if link is empty, or a relative link (# or ?). Returns False
+    Checks if link against skip_protocols [list]. Returns False.
+    Checks if end of link matches matches skip_extensions [list]. Returns false
+    Returns True.
     """
-    valid_extensions = ['asp', 'htm', 'html', 'js', 'jsp', 'php', 'xhtml', '/']
+    skip_extensions = ['jpg', 'jpeg', 'png', 'tiff', 'gif', 'apng', 'mng', 'svg', 'pdf', 'bmp', 'ico', 'xbm']
     skip_protocols = ['feed' 'ftp', 'rss']
 
     if link == '' or link[0] == '#' or link[0] == '?':
+        print "hit"
         return False 
 
     for protocol in skip_protocols:
         if link[:len(protocol)] == protocol:
             return False
 
-    for extension in valid_extensions:
+    for extension in skip_extensions:
         if link[-len(extension):] == extension:
-            return True
-    return False
+            return False
+    
+    return True
 
 
 def expand_link(link, start_page):
@@ -128,7 +134,7 @@ pages_tracked = []
 
 count = 0 # visual count of pages tracked (is displayed to console)
 
-while count < 10 and len(pages_to_track) > 0:
+while count < 2 and len(pages_to_track) > 0:
     
     try:
         current_page = pages_to_track.pop(0)
