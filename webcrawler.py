@@ -53,6 +53,7 @@ def find_internal_links(page_links, start_page):
     """
     internal_links = []
     for link in page_links:
+    	link = expand_link(link, start_page)
         if is_internal(link, start_page):
             internal_links.append(link)
     return internal_links
@@ -66,6 +67,7 @@ def find_domain(webpage):
 
 def is_internal(link, start_page):
     """
+    THIS NEEDS FIXING. RETURNS FALSE FOR INTERNAL NEWS PAGES.
     Checks webpage [string] against start_page [string]
     Passes both to find_domain [function] which strips them down to the URL domain (ie: www.google.com)
     Checks both domains against each other to find if they match.
@@ -74,7 +76,7 @@ def is_internal(link, start_page):
     try: 
         link_domain = find_domain(link)
         start_page_domain = find_domain(start_page)
-        print link
+        print link # test prints. Remove when done
         print link_domain in start_page_domain or start_page_domain in link_domain
         return link_domain in start_page_domain or start_page_domain in link_domain
         # Uses 'or' to see if either domain fits inside the other.
@@ -95,7 +97,6 @@ def is_valid(link):
     skip_protocols = ['feed' 'ftp', 'rss']
 
     if link == '' or link[0] == '#' or link[0] == '?':
-        print "hit"
         return False 
 
     for protocol in skip_protocols:
@@ -143,7 +144,6 @@ while count < 2 and len(pages_to_track) > 0:
         write_to_file(page_links)
         internal_links = find_internal_links(page_links, start_page)
         for page in internal_links:
-            page = expand_link(page, start_page)
             if page not in pages_tracked and page not in pages_to_track:
                 if is_valid(page):
                     pages_to_track.append(page)
