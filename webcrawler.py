@@ -67,7 +67,6 @@ def find_domain(webpage):
 
 def is_internal(link, start_page):
     """
-    THIS NEEDS FIXING. RETURNS FALSE FOR INTERNAL NEWS PAGES.
     Checks webpage [string] against start_page [string]
     Passes both to find_domain [function] which strips them down to the URL domain (ie: www.google.com)
     Checks both domains against each other to find if they match.
