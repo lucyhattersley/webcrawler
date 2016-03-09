@@ -32,7 +32,7 @@ for row in reader:
     else:
         colnum = 0
         for col in row:
-            print '%-8s: %s' % (header[colnum], col)
+            print '%-20s: %s' % (header[colnum], col)
             colnum += 1
     rownum += 1
 
