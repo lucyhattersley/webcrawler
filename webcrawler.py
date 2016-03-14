@@ -1,22 +1,20 @@
-# This creates a 'links.txt' file containing all html links found in website
-
 from bs4 import BeautifulSoup
+import csv
 import urllib2
 
 
-def write_to_file(page_links):
+#This writes page_links to all_linx.txt. Maybe replace all_links.txt with all_links list?
+def add_to_all_links(page_links):
     """
     Accepts page_links [list]
     Opens the all_links.txt file (in amend mode)
     Iterates through page_links and checks to see if the link is not already in the file (if not, writes the link to the end of the file)
     Does not return anything
     """
-    with open('all_links.txt', "a") as all_links:
-        for link in page_links:
-            if link not in open('all_links.txt').read(): #prevents duplicates 
-                all_links.write(link)
-                all_links.write('\n') 
-        all_links.close()
+    for link in page_links:
+        #THIS DOESN'T WORK AS ALL_LINKS IS LIST OF LISTS. FIGURE OUT FIX
+        if link not in all_links:
+            all_links.append([link])
 
     return
 
@@ -76,8 +74,6 @@ def is_internal(link, start_page):
     try: 
         link_domain = find_domain(link)
         start_page_domain = find_domain(start_page)
-        print link # test prints. Remove when done
-        print link_domain in start_page_domain or start_page_domain in link_domain
         return link_domain in start_page_domain or start_page_domain in link_domain
         # Uses 'or' to see if either domain fits inside the other.
         # this ensures that google.com and www.google.com match regardless of which way around they are
@@ -132,7 +128,7 @@ start_page = 'http://news.bbc.co.uk'
 #set up tracking lists
 pages_to_track = [start_page]
 pages_tracked = []
-
+all_links = []
 count = 0 # visual count of pages tracked (is displayed to console)
 
 while count < 2 and len(pages_to_track) > 0:
@@ -141,7 +137,7 @@ while count < 2 and len(pages_to_track) > 0:
         current_page = pages_to_track.pop(0)
         soup = get_soup(current_page)
         page_links = scan_for_links(soup)
-        write_to_file(page_links)
+        add_to_all_links(page_links)
         internal_links = find_internal_links(page_links, start_page)
         for page in internal_links:
             if page not in pages_tracked and page not in pages_to_track:
@@ -160,8 +156,10 @@ while count < 2 and len(pages_to_track) > 0:
     if page not in pages_tracked:
         pages_tracked.append(current_page)
 
-with open('pages_tracked.txt', 'a') as f:
-    for page in pages_tracked:
-        f.write(page)
-        f.write('\n')
-    f.close()
+# Writes alL_links to CSV file
+with open('pages_tracked.csv', 'wb') as f:
+    writer = csv.writer(f)
+    for row in all_links:
+        print row
+        writer.writerow(row)
+    print len(all_links)
