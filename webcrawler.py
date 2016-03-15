@@ -7,20 +7,19 @@ import urllib2
 def add_to_all_links(page_links):
     """
     Accepts page_links [list]
-    Opens the all_links.txt file (in amend mode)
-    Iterates through page_links and checks to see if the link is not already in the file (if not, writes the link to the end of the file)
+    Iterates through page_links and checks to see if the link is not already in all_links [list] 
+        If not, appends link to all_links
     Does not return anything
     """
     for link in page_links:
-        #THIS DOESN'T WORK AS ALL_LINKS IS LIST OF LISTS. FIGURE OUT FIX
         if link not in all_links:
-            all_links.append([link])
+            all_links.append(link)
 
     return
 
 def scan_for_links(soup):
     """
-    Takes soup [Beautiful Soup object].
+    Takes soup [Beautiful Soup object]
     Finds all URLs in soup and adds to links [list]
     Returns links
     """
@@ -33,7 +32,7 @@ def scan_for_links(soup):
 def get_soup(webpage):
     """
     Accepts webpage [string] containing a URL
-    Uses urllib2 to generate a request and respone.
+    Uses urllib2 to generate a request and respone
     Creates a soup [Beautiful Soup instance] from the response using html.parser
     Returns soup
     """
@@ -58,14 +57,14 @@ def find_internal_links(page_links, start_page):
 
 def find_domain(webpage):
     """
-    Accepts webpage [string] and removes the Protocol, Subdomain and Path. Returns domain [string].
+    Accepts webpage [string] and removes the Protocol, Subdomain and Path. Returns domain [string]
     Example: if webpage is "http://news.google.com/world" then domain is "google.com"
     """
     return webpage.split('/')[2]
 
 def is_internal(link, start_page):
     """
-    THIS NEEDS FIXING. RETURNS FALSE FOR INTERNAL NEWS PAGES.
+    THIS NEEDS FIXING. RETURNS FALSE FOR INTERNAL NEWS PAGES
     Checks webpage [string] against start_page [string]
     Passes both to find_domain [function] which strips them down to the URL domain (ie: www.google.com)
     Checks both domains against each other to find if they match.
@@ -143,10 +142,6 @@ while count < 2 and len(pages_to_track) > 0:
             if page not in pages_tracked and page not in pages_to_track:
                 if is_valid(page):
                     pages_to_track.append(page)
-                    with open('pages_to_track.txt', 'a') as f:
-                        f.write(page)
-                        f.write('\n')
-            f.close()
     except:
         pass # skips pages that don't respond
 
@@ -160,6 +155,4 @@ while count < 2 and len(pages_to_track) > 0:
 with open('pages_tracked.csv', 'wb') as f:
     writer = csv.writer(f)
     for row in all_links:
-        print row
-        writer.writerow(row)
-    print len(all_links)
+        writer.writerow([row])
