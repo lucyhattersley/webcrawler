@@ -3,7 +3,6 @@ import csv
 import urllib2
 
 
-#This writes page_links to all_linx.txt. Maybe replace all_links.txt with all_links list?
 def add_to_all_links(page_links):
     """
     Accepts page_links [list]
@@ -122,34 +121,42 @@ def expand_link(link, start_page):
         
     return new_link
  
-start_page = 'http://news.bbc.co.uk'
+def scan_website(start_page, max_pages):
+    """
+    Accepts start_page [string], a URL, and max_pages[int]
+    Adds start_page to pages_to_track [list]. Then scans page for links and adds
+    internal links to pages_to_track.
+    Adds links found to all_links [list]
+    Returns all_links.
+    """
+    pages_to_track = [start_page]
+    pages_tracked = []
+    all_links = []
+    count = 0 # visual count of pages tracked (is displayed to console)
+    while count < max_pages and len(pages_to_track) > 0:
+        
+        try:
+            current_page = pages_to_track.pop(0)
+            soup = get_soup(current_page)
+            page_links = scan_for_links(soup)
+            add_to_all_links(page_links)
+            internal_links = find_internal_links(page_links, start_page)
+            for page in internal_links:
+                if page not in pages_tracked and page not in pages_to_track:
+                    if is_valid(page):
+                        pages_to_track.append(page)
+        except:
+            pass # skips pages that don't respond
 
-#set up tracking lists
-pages_to_track = [start_page]
-pages_tracked = []
-all_links = []
-count = 0 # visual count of pages tracked (is displayed to console)
+        count += 1
+        print "Number of pages tracked: " + str(count)
+        
+        if current_page not in pages_tracked:
+            pages_tracked.append(current_page)
 
-while count < 2 and len(pages_to_track) > 0:
-    
-    try:
-        current_page = pages_to_track.pop(0)
-        soup = get_soup(current_page)
-        page_links = scan_for_links(soup)
-        add_to_all_links(page_links)
-        internal_links = find_internal_links(page_links, start_page)
-        for page in internal_links:
-            if page not in pages_tracked and page not in pages_to_track:
-                if is_valid(page):
-                    pages_to_track.append(page)
-    except:
-        pass # skips pages that don't respond
+    return all_links
 
-    count += 1
-    print "Number of pages tracked: " + str(count)
-    
-    if page not in pages_tracked:
-        pages_tracked.append(current_page)
+all_links = scan_website('http://news.bbc.co.uk', 20)
 
 # Writes alL_links to CSV file
 with open('pages_tracked.csv', 'wb') as f:
