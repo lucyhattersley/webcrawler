@@ -11,12 +11,14 @@ def add_to_all_links(page_links, all_links):
     Returns all_links
     """
     for link in page_links:
+        link_found = False
         for sublist in all_links:
-            if link == sublist[0]:
-                sublist[1] += 1        
-        else:
+            if link == sublist[0]:                
+                link_found = True                
+                sublist[1] += 1
+                break 
+        if link_found == False:
             all_links.append([link,1])
-    print all_links
     return all_links
 
 def scan_for_links(soup):
@@ -135,7 +137,6 @@ def scan_website(start_page, max_pages):
     pages_to_track = [start_page]
     pages_tracked = []
     all_links = []
-    print all_links
     count = 0 # visual count of pages tracked (is displayed to console)
     while count < max_pages and len(pages_to_track) > 0:
         try:
@@ -159,12 +160,8 @@ def scan_website(start_page, max_pages):
 
     return all_links
 
-# TEST TO FIND OUTPUT FROM ALL_LINKS
-all_links = scan_website('http://www.macworld.co.uk', 20)
-
-for link in all_links:
-    print "Page:" + str(link[0])
-    print "Count:" + str(link[1])
+# Run main program
+all_links = scan_website('http://www.techradar.com', 200)
 
 # Writes alL_links to CSV file
 with open('pages_tracked.csv', 'wb') as f:
