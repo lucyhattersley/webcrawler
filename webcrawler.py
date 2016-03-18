@@ -3,7 +3,7 @@ import csv
 import urllib2
 
 
-def add_to_all_links(page_links):
+def add_to_all_links(page_links, all_links):
     """
     Accepts page_links [list]
     Iterates through page_links and checks to see if the link is not already in all_links [list] 
@@ -13,8 +13,8 @@ def add_to_all_links(page_links):
     for link in page_links:
         if link not in all_links:
             all_links.append(link)
-
-    return
+    print all_links
+    return all_links
 
 def scan_for_links(soup):
     """
@@ -120,7 +120,7 @@ def expand_link(link, start_page):
         new_link = link
         
     return new_link
- 
+
 def scan_website(start_page, max_pages):
     """
     Accepts start_page [string], a URL, and max_pages[int]
@@ -132,15 +132,15 @@ def scan_website(start_page, max_pages):
     pages_to_track = [start_page]
     pages_tracked = []
     all_links = []
+    print all_links
     count = 0 # visual count of pages tracked (is displayed to console)
     while count < max_pages and len(pages_to_track) > 0:
-        
         try:
             current_page = pages_to_track.pop(0)
             soup = get_soup(current_page)
             page_links = scan_for_links(soup)
-            add_to_all_links(page_links)
-            internal_links = find_internal_links(page_links, start_page)
+            all_links = add_to_all_links(page_links, all_links)
+            internal_links = find_internal_links(page_links, start_page)            
             for page in internal_links:
                 if page not in pages_tracked and page not in pages_to_track:
                     if is_valid(page):
