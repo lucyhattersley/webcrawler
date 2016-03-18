@@ -1,311 +1,993 @@
-/
-#page
-/accessibility/
-/id/status?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fnews
-#
-http://www.bbc.co.uk/news/
-http://www.bbc.com/news/
-/sport/
-/weather/
-http://shop.bbc.com/
-http://www.bbc.com/earth/
-http://www.bbc.com/travel/
-http://www.bbc.com/capital/
-/iplayer/
-http://www.bbc.com/culture/
-http://www.bbc.com/autos/
-http://www.bbc.com/future/
-/tv/
-/radio/
-/cbbc
-/cbeebies
-/food/
-/iwonder
-/education
-/travel/
-/music/
-/arts/
-/makeitdigital
-/taster
-/nature/
-/local/
-#orb-footer
-http://search.bbc.co.uk/search
-/news
-#core-navigation
-/news/uk
-/news/world
-/news/business
-/news/politics
-/news/technology
-/news/science_and_environment
-/news/health
-/news/education
-/news/entertainment_and_arts
-/news/video_and_audio/video
-/news/magazine
-/news/in_pictures
-/news/also_in_the_news
-/news/special_reports
-/news/explainers
-/news/the_reporters
-/news/have_your_say
-/news/disability
-/news/england
-/news/northern_ireland
-/news/scotland
-/naidheachdan
-/news/wales
-/cymrufyw
-/news/popular/read
-/news/world-europe-35838735
-/news/world/europe
-/news/world-europe-35839708
-/news/world-europe-35819675
-/news/world-35827991
-/news/uk-politics-eu-referendum-35832035
-/news/uk-politics-35839282
-/news/uk-politics-35838493
-/news/uk-politics-35834142
-/news/uk-politics-35830452
-/news/science-environment-35837773
-/news/science-environment-18674655
-/news/uk-35838564
-/news/health-35833997
-/news/business-35835752
-/news/world-us-canada-35838585
-/news/world/us_and_canada
-/news/world-asia-35835088
-/news/world/asia
-/news/business-35828471
-/news/uk-england-york-north-yorkshire-35830858
-/news/england/york_and_north_yorkshire
-/news/world-us-canada-35839635
-/news/10318089
-http://www.bbc.co.uk/iplayer/console/bbc_radio_four
-/news/election-us-2016-35836099
-/news/election/us2016
-/news/world-asia-35836853
-/news/world-europe-35840397
-/news/business-35831313
-/news/entertainment-arts-35835441
-/news/world-us-canada-35836284
-/news/blogs-the-papers-35838494
-http://m.bbc.co.uk/news/also_in_the_news
-/news/uk-england-cornwall-35837271
-/news/england/cornwall
-/news/entertainment-arts-35836561
-http://www.bbc.co.uk/news/the_reporters
-/news/health-35806264
-/news/correspondents/nicktriggle
-/news/uk-35830270
-/news/correspondents/nikkifox
-/news/world-latin-america-35809367
-/news/world/latin_america
-/news/uk-wales-35640961
-/news/magazine-35832554
-/news/magazine-35832550
-/news/magazine-35817492
-/news/entertainment-arts-35813124
-/news/business-35807556
-http://www.bbc.co.uk/news/explainers
-http://bbc.in/1pqgCli
-/news/election-us-2016-35713168
-/news/science-environment-35708999
-http://m.bbc.co.uk/sport
-/sport/live/35716467
-/sport/0/
-/sport/formula1/35839885
-/sport/formula1
-/sport/football/35835435
-/sport/football
-/sport/cricket/35834588
-/sport/cricket
-/weather
-/ws/languages
-mailto:haveyoursay@bbc.co.uk
-https://twitter.com/BBC_HaveYourSay
-https://www.facebook.com/bbcnews
-https://twitter.com/BBCNews
-http://www.bbc.co.uk/news/help/16617948
-http://feeds.bbci.co.uk/news/rss.xml?edition=uk
-http://www.bbc.co.uk/guides/zqmkqty
-http://www.bbc.co.uk/programmes/articles/1mwr21JPNWZPbM2bd70tQkY/ben-wheatley-the-lowdown-on-high-rise?intc_type=promo&intc_location=news&intc_campaign=highriselowdown&intc_linkname=arts_ent_article1
-/news/world/africa
-/news/world/australia
-/news/world/middle_east
-/news/business/your_money
-http://www.bbc.co.uk/news/business/market_data
-/news/business/markets
-/news/business/companies
-/news/business/economy
-/news/politics/parliaments
-/news/politics/eu_referendum
-/schoolreport
-/news/business-12686570
-http://www.bbc.co.uk/news/10628994
-http://www.bbc.co.uk/news/help-17655000
-http://www.bbc.co.uk/news/10628323
-http://www.bbc.co.uk/news/20039682
-/terms/
-/aboutthebbc/
-/privacy/
-/privacy/cookies/about
-/guidance/
-/contact/
-http://advertising.bbcworldwide.com/
-/privacy/cookies/international/
-/help/web/links/
-/id/status?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fsport
-/sport
-/sport/all-sports
-/sport/my-sport
-/sport/rugby-union
-/sport/rugby-league
-/sport/tennis
-/sport/golf
-/sport/athletics
-/sport/american-football
-/sport/get-inspired/bodypositive
-/sport/boxing
-/sport/cycling
-/sport/disability-sport
-/sport/northern-ireland/gaelic-games
-/sport/get-inspired
-/sport/horse-racing
-/sport/motorsport
-/sport/olympics
-/sport/snooker
-/sport/swimming
-/sport/winter-sports
-/sport/football/european-championship/euro-2016
-/sport/olympics/rio-2016
-/sport/england
-/sport/scotland
-/sport/wales
-/sport/northern-ireland
-/iplayer/tv/categories/sport
-/programmes/b007t9y1
-/5live/programmes/genres/sport/current
-/sport/sports-personality
-/sport/17151954
-/sport/horse-racing/35835180
-/sport/rugby-union/35838833
-/sport/football/35838808
-/sport/football/european
-/sport/rugby-union/35837685
-/sport/rugby-union/english
-/sport/tennis/35838667
-/sport/horse-racing/35836195
-/sport/disability-sport/35835072
-/sport/football/35838706
-/sport/athletics/35830530
-/sport/rugby-union/35834956
-/sport/golf/35838536
-/sport/rugby-league/35813241
-/sport/football/35815545
-/sport/cricket/35834188
-/sport/football/fixtures
-/sport/football/35781504
-/sport/football/championship/live-scores
-/sport/football/gossip
-/sport/get-inspired/33158592
-/sport/rugby-union/35358304
-/sport/football/live-scores
-/sport/football/results
-/sport/football/tables
-/sport/cricket/scorecard/ECKP90314
-/sport/cricket/scorecard/ECKP90315
-/sport/cricket/35090441
-/sport/cricket/world-twenty20/table
-/sport/cricket/35546146
-/sport/horse-racing/35639829
-/sport/horse-racing/uk-ireland/results
-javascript:void(0)
-/sport/rugby-union/six-nations/fixtures
-/sport/rugby-union/six-nations/results
-/sport/rugby-union/six-nations/table
-/sport/rugby-union/womens-six-nations/fixtures
-/sport/rugby-union/womens-six-nations/results
-/sport/rugby-union/womens-six-nations/table
-/sport/golf/uspga-tour/leaderboard
-/sport/golf/european-tour/leaderboard
-/sport/golf/lpga-tour/leaderboard
-/sport/athletics/34214296
-/sport/rugby-league/live-scores
-/sport/rugby-league/fixtures
-/sport/rugby-league/super-league/table
-/sport/34453641
-/sport/disability-sport/20271169
-/sport/rugby-union/35835310
-/sport/cricket/35831299
-/sport/football/35832991
-/sport/cricket/35837733
-/sport/football/35832844
-/sport/athletics/35835177
-/sport/football/35835184
-/sport/cricket/35820346
-/sport/cricket/35832838
-/sport/live/cricket/35625029
-/sport/live/athletics/35625320
-http://www.bbc.co.uk/programmes/b073m894
-/sport/live/rugby-union/35810774
-/sport/live/football/35810777
-/sport/get-inspired/35775256
-/sport/get-inspired/scotland
-/sport/formula1/35829612
-/sport/football/35798388
-/sport/cricket/35774022
-/sport/rugby-union/35819358
-/sport/olympics/35773669
-http://www.bbc.co.uk/thingstodo/activity/the-sport-relief-swimathon-742
-http://www.bbc.co.uk/thingstodo/activity/the-sport-relief-swimathon-743
-http://www.bbc.co.uk/getinspired
-/sport/football/35815538
-/sport/football/35835879
-/sport/rugby-union/35831162
-None
-#sport-container
-/sport/15890345
-/sport/15561348
-http://m.bbc.co.uk
-#blq-content
-#blq-local-nav
-https://ssl.bbc.co.uk/id/status
-https://ssl.bbc.co.uk/id/settings
-https://ssl.bbc.co.uk/id/signout
-http://www.bbc.co.uk/sport
-http://www.bbc.co.uk/weather/
-#blq-footlinks
-/weather/?tempUnit=F
-/weather/?windUnit=K
-/weather/ga
-/weather/gd
-/weather/cy
-/weather/2635167
-/weather/2635167#outlook
-/weather/coast_and_sea
-http://www.bbc.co.uk/weather/features/35727564
-/weather/features/18877641
-/weather/2655984
-/weather/2653822
-/weather/2650225
-/weather/2643743
-/weather/2643123
-/weather/3042091
-/weather/2644605
-/weather/features/35835959
-/weather/features/35835955
-/weather/feeds/31933945
-http://faq.external.bbc.co.uk/questions/bbc_online/adverts_general
-http://www.bbc.co.uk/weatherwatchers
-/weather/features/35822274
-/travel
-http://www.metoffice.gov.uk/
-http://www.wmo.int/
-/weather/about/19119489
-/weather/about/17543675
-/weather/about/19086178
-/weather/about/17185651
-http://m.bbc.co.uk/weather
-/weather/contact_us
+"['/', 0]"
+"['#page', 0]"
+"['/accessibility/', 0]"
+"['/id/status?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fnews', 0]"
+"['#', 0]"
+"['http://www.bbc.co.uk/news/', 0]"
+"['http://www.bbc.com/news/', 0]"
+"['/sport/', 0]"
+"['/weather/', 0]"
+"['http://shop.bbc.com/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['http://www.bbc.com/travel/', 0]"
+"['http://www.bbc.com/capital/', 0]"
+"['/iplayer/', 0]"
+"['http://www.bbc.com/culture/', 0]"
+"['http://www.bbc.com/autos/', 0]"
+"['http://www.bbc.com/future/', 0]"
+"['/tv/', 0]"
+"['/radio/', 0]"
+"['/cbbc', 0]"
+"['/cbeebies', 0]"
+"['/food/', 0]"
+"['/iwonder', 0]"
+"['/education', 0]"
+"['/travel/', 0]"
+"['/music/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['/arts/', 0]"
+"['/makeitdigital', 0]"
+"['/taster', 0]"
+"['/nature/', 0]"
+"['/local/', 0]"
+"['#orb-footer', 0]"
+"['http://search.bbc.co.uk/search', 0]"
+"['/news', 0]"
+"['#core-navigation', 0]"
+"['/news', 0]"
+"['/news/uk', 0]"
+"['/news/world', 0]"
+"['/news/business', 0]"
+"['/news/politics', 0]"
+"['/news/technology', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/health', 0]"
+"['/news/education', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/video_and_audio/video', 0]"
+"['/news/magazine', 0]"
+"['/news/in_pictures', 0]"
+"['/news/also_in_the_news', 0]"
+"['/news/special_reports', 0]"
+"['/news/explainers', 0]"
+"['/news/the_reporters', 0]"
+"['/news/have_your_say', 0]"
+"['/news/disability', 0]"
+"['/news/england', 0]"
+"['/news/northern_ireland', 0]"
+"['/news/scotland', 0]"
+"['/naidheachdan', 0]"
+"['/news/wales', 0]"
+"['/cymrufyw', 0]"
+"['/news', 0]"
+"['/news/popular/read', 0]"
+"['/news/world-europe-35838735', 0]"
+"['/news/world/europe', 0]"
+"['/news/world-europe-35839708', 0]"
+"['/news/world-europe-35819675', 0]"
+"['/news/world-35827991', 0]"
+"['/news/uk-politics-eu-referendum-35832035', 0]"
+"['/news/world-europe-35838735', 0]"
+"['/news/uk-politics-35839282', 0]"
+"['/news/politics', 0]"
+"['/news/uk-politics-35838493', 0]"
+"['/news/uk-politics-35834142', 0]"
+"['/news/uk-politics-35830452', 0]"
+"['/news/uk-politics-35839282', 0]"
+"['/news/science-environment-35837773', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/science-environment-18674655', 0]"
+"['/news/science-environment-35837773', 0]"
+"['/news/uk-politics-35838493', 0]"
+"['/news/politics', 0]"
+"['/news/uk-politics-35838493', 0]"
+"['/news/uk-35838564', 0]"
+"['/news/uk', 0]"
+"['/news/uk-35838564', 0]"
+"['/news/health-35833997', 0]"
+"['/news/health', 0]"
+"['/news/health-35833997', 0]"
+"['/news/business-35835752', 0]"
+"['/news/business', 0]"
+"['/news/business-35835752', 0]"
+"['/news/world-us-canada-35838585', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35838585', 0]"
+"['/news/world-asia-35835088', 0]"
+"['/news/world/asia', 0]"
+"['/news/world-asia-35835088', 0]"
+"['/news/business-35828471', 0]"
+"['/news/business', 0]"
+"['/news/business-35828471', 0]"
+"['/news/uk-england-york-north-yorkshire-35830858', 0]"
+"['/news/england/york_and_north_yorkshire', 0]"
+"['/news/uk-england-york-north-yorkshire-35830858', 0]"
+"['/news/world-us-canada-35839635', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35839635', 0]"
+"['/news/10318089', 0]"
+"['http://www.bbc.co.uk/iplayer/console/bbc_radio_four', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/election/us2016', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world/asia', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/world/europe', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/business-35831313', 0]"
+"['/news/business', 0]"
+"['/news/business-35831313', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/blogs-the-papers-35838494', 0]"
+"['/news/blogs-the-papers-35838494', 0]"
+"['http://m.bbc.co.uk/news/also_in_the_news', 0]"
+"['/news/uk-england-cornwall-35837271', 0]"
+"['/news/england/cornwall', 0]"
+"['/news/uk-england-cornwall-35837271', 0]"
+"['/news/entertainment-arts-35836561', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35836561', 0]"
+"['http://www.bbc.co.uk/news/the_reporters', 0]"
+"['/news/health-35806264', 0]"
+"['/news/correspondents/nicktriggle', 0]"
+"['/news/health', 0]"
+"['/news/health-35806264', 0]"
+"['/news/uk-35830270', 0]"
+"['/news/correspondents/nikkifox', 0]"
+"['/news/uk', 0]"
+"['/news/uk-35830270', 0]"
+"['/news/world-latin-america-35809367', 0]"
+"['/news/world/latin_america', 0]"
+"['/news/world-latin-america-35809367', 0]"
+"['/news/uk-wales-35640961', 0]"
+"['/news/wales', 0]"
+"['/news/uk-wales-35640961', 0]"
+"['/news/magazine-35832554', 0]"
+"['/news/magazine', 0]"
+"['/news/magazine-35832554', 0]"
+"['/news/magazine-35832550', 0]"
+"['/news/magazine', 0]"
+"['/news/magazine-35832550', 0]"
+"['/news/magazine-35817492', 0]"
+"['/news/magazine', 0]"
+"['/news/magazine-35817492', 0]"
+"['/news/entertainment-arts-35813124', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35813124', 0]"
+"['/news/business-35807556', 0]"
+"['/news/business', 0]"
+"['/news/business-35807556', 0]"
+"['http://www.bbc.co.uk/news/explainers', 0]"
+"['http://bbc.in/1pqgCli', 0]"
+"['http://bbc.in/1pqgCli', 0]"
+"['/news/election-us-2016-35713168', 0]"
+"['/news/election/us2016', 0]"
+"['/news/election-us-2016-35713168', 0]"
+"['/news/science-environment-35708999', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/science-environment-35708999', 0]"
+"['http://m.bbc.co.uk/sport', 0]"
+"['/sport/live/35716467', 0]"
+"['/sport/0/', 0]"
+"['/sport/live/35716467', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/formula1', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/football', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/cricket/35834588', 0]"
+"['/sport/cricket', 0]"
+"['/sport/cricket/35834588', 0]"
+"['/weather', 0]"
+"['/weather', 0]"
+"['/ws/languages', 0]"
+"['/news/10318089', 0]"
+"['http://www.bbc.co.uk/iplayer/console/bbc_radio_four', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/election/us2016', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world/asia', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/world/europe', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/business-35831313', 0]"
+"['/news/business', 0]"
+"['/news/business-35831313', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/have_your_say', 0]"
+"['mailto:haveyoursay@bbc.co.uk', 0]"
+"['https://twitter.com/BBC_HaveYourSay', 0]"
+"['https://www.facebook.com/bbcnews', 0]"
+"['https://twitter.com/BBCNews', 0]"
+"['http://www.bbc.co.uk/news/help/16617948', 0]"
+"['http://feeds.bbci.co.uk/news/rss.xml?edition=uk', 0]"
+"['http://www.bbc.co.uk/guides/zqmkqty', 0]"
+"['http://www.bbc.co.uk/guides/zqmkqty', 0]"
+"['http://www.bbc.co.uk/programmes/articles/1mwr21JPNWZPbM2bd70tQkY/ben-wheatley-the-lowdown-on-high-rise?intc_type=promo&intc_location=news&intc_campaign=highriselowdown&intc_linkname=arts_ent_article1', 0]"
+"['http://www.bbc.co.uk/programmes/articles/1mwr21JPNWZPbM2bd70tQkY/ben-wheatley-the-lowdown-on-high-rise?intc_type=promo&intc_location=news&intc_campaign=highriselowdown&intc_linkname=arts_ent_article1', 0]"
+"['/news', 0]"
+"['/news/uk', 0]"
+"['/news/uk', 0]"
+"['/news/england', 0]"
+"['/news/northern_ireland', 0]"
+"['/news/scotland', 0]"
+"['/naidheachdan', 0]"
+"['/news/wales', 0]"
+"['/cymrufyw', 0]"
+"['/news/world', 0]"
+"['/news/world', 0]"
+"['/news/world/africa', 0]"
+"['/news/world/asia', 0]"
+"['/news/world/australia', 0]"
+"['/news/world/europe', 0]"
+"['/news/world/latin_america', 0]"
+"['/news/world/middle_east', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/business', 0]"
+"['/news/business', 0]"
+"['/news/business/your_money', 0]"
+"['http://www.bbc.co.uk/news/business/market_data', 0]"
+"['/news/business/markets', 0]"
+"['/news/business/companies', 0]"
+"['/news/business/economy', 0]"
+"['/news/politics', 0]"
+"['/news/politics', 0]"
+"['/news/politics/parliaments', 0]"
+"['/news/politics/eu_referendum', 0]"
+"['/news/election/us2016', 0]"
+"['/news/technology', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/health', 0]"
+"['/news/education', 0]"
+"['/news/education', 0]"
+"['/schoolreport', 0]"
+"['/news/business-12686570', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/video_and_audio/video', 0]"
+"['/news/magazine', 0]"
+"['/news/in_pictures', 0]"
+"['/news/also_in_the_news', 0]"
+"['/news/special_reports', 0]"
+"['/news/explainers', 0]"
+"['/news/the_reporters', 0]"
+"['/news/have_your_say', 0]"
+"['/news/disability', 0]"
+"['http://www.bbc.co.uk/news/10628994', 0]"
+"['http://www.bbc.co.uk/news/help-17655000', 0]"
+"['http://www.bbc.co.uk/news/10628323', 0]"
+"['http://www.bbc.co.uk/news/20039682', 0]"
+"['http://www.bbc.co.uk/news/', 0]"
+"['http://www.bbc.com/news/', 0]"
+"['/sport/', 0]"
+"['/weather/', 0]"
+"['http://shop.bbc.com/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['http://www.bbc.com/travel/', 0]"
+"['http://www.bbc.com/capital/', 0]"
+"['/iplayer/', 0]"
+"['http://www.bbc.com/culture/', 0]"
+"['http://www.bbc.com/autos/', 0]"
+"['http://www.bbc.com/future/', 0]"
+"['/tv/', 0]"
+"['/radio/', 0]"
+"['/cbbc', 0]"
+"['/cbeebies', 0]"
+"['/food/', 0]"
+"['/iwonder', 0]"
+"['/education', 0]"
+"['/travel/', 0]"
+"['/music/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['/arts/', 0]"
+"['/makeitdigital', 0]"
+"['/taster', 0]"
+"['/nature/', 0]"
+"['/local/', 0]"
+"['/terms/', 0]"
+"['/aboutthebbc/', 0]"
+"['/privacy/', 0]"
+"['/privacy/cookies/about', 0]"
+"['/accessibility/', 0]"
+"['/guidance/', 0]"
+"['/contact/', 0]"
+"['http://advertising.bbcworldwide.com/', 0]"
+"['/privacy/cookies/international/', 0]"
+"['/help/web/links/', 0]"
+"['/', 0]"
+"['#page', 0]"
+"['/accessibility/', 0]"
+"['/id/status?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fnews', 0]"
+"['#', 0]"
+"['http://www.bbc.co.uk/news/', 0]"
+"['http://www.bbc.com/news/', 0]"
+"['/sport/', 0]"
+"['/weather/', 0]"
+"['http://shop.bbc.com/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['http://www.bbc.com/travel/', 0]"
+"['http://www.bbc.com/capital/', 0]"
+"['/iplayer/', 0]"
+"['http://www.bbc.com/culture/', 0]"
+"['http://www.bbc.com/autos/', 0]"
+"['http://www.bbc.com/future/', 0]"
+"['/tv/', 0]"
+"['/radio/', 0]"
+"['/cbbc', 0]"
+"['/cbeebies', 0]"
+"['/food/', 0]"
+"['/iwonder', 0]"
+"['/education', 0]"
+"['/travel/', 0]"
+"['/music/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['/arts/', 0]"
+"['/makeitdigital', 0]"
+"['/taster', 0]"
+"['/nature/', 0]"
+"['/local/', 0]"
+"['#orb-footer', 0]"
+"['http://search.bbc.co.uk/search', 0]"
+"['/news', 0]"
+"['#core-navigation', 0]"
+"['/news', 0]"
+"['/news/uk', 0]"
+"['/news/world', 0]"
+"['/news/business', 0]"
+"['/news/politics', 0]"
+"['/news/technology', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/health', 0]"
+"['/news/education', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/video_and_audio/video', 0]"
+"['/news/magazine', 0]"
+"['/news/in_pictures', 0]"
+"['/news/also_in_the_news', 0]"
+"['/news/special_reports', 0]"
+"['/news/explainers', 0]"
+"['/news/the_reporters', 0]"
+"['/news/have_your_say', 0]"
+"['/news/disability', 0]"
+"['/news/england', 0]"
+"['/news/northern_ireland', 0]"
+"['/news/scotland', 0]"
+"['/naidheachdan', 0]"
+"['/news/wales', 0]"
+"['/cymrufyw', 0]"
+"['/news', 0]"
+"['/news/popular/read', 0]"
+"['/news/world-europe-35838735', 0]"
+"['/news/world/europe', 0]"
+"['/news/world-europe-35839708', 0]"
+"['/news/world-europe-35819675', 0]"
+"['/news/world-35827991', 0]"
+"['/news/uk-politics-eu-referendum-35832035', 0]"
+"['/news/world-europe-35838735', 0]"
+"['/news/uk-politics-35839282', 0]"
+"['/news/politics', 0]"
+"['/news/uk-politics-35838493', 0]"
+"['/news/uk-politics-35834142', 0]"
+"['/news/uk-politics-35830452', 0]"
+"['/news/uk-politics-35839282', 0]"
+"['/news/science-environment-35837773', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/science-environment-18674655', 0]"
+"['/news/science-environment-35837773', 0]"
+"['/news/uk-politics-35838493', 0]"
+"['/news/politics', 0]"
+"['/news/uk-politics-35838493', 0]"
+"['/news/uk-35838564', 0]"
+"['/news/uk', 0]"
+"['/news/uk-35838564', 0]"
+"['/news/health-35833997', 0]"
+"['/news/health', 0]"
+"['/news/health-35833997', 0]"
+"['/news/business-35835752', 0]"
+"['/news/business', 0]"
+"['/news/business-35835752', 0]"
+"['/news/world-us-canada-35838585', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35838585', 0]"
+"['/news/world-asia-35835088', 0]"
+"['/news/world/asia', 0]"
+"['/news/world-asia-35835088', 0]"
+"['/news/business-35828471', 0]"
+"['/news/business', 0]"
+"['/news/business-35828471', 0]"
+"['/news/uk-england-york-north-yorkshire-35830858', 0]"
+"['/news/england/york_and_north_yorkshire', 0]"
+"['/news/uk-england-york-north-yorkshire-35830858', 0]"
+"['/news/world-us-canada-35839635', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35839635', 0]"
+"['/news/10318089', 0]"
+"['http://www.bbc.co.uk/iplayer/console/bbc_radio_four', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/election/us2016', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world/asia', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/world/europe', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/business-35831313', 0]"
+"['/news/business', 0]"
+"['/news/business-35831313', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/blogs-the-papers-35838494', 0]"
+"['/news/blogs-the-papers-35838494', 0]"
+"['http://m.bbc.co.uk/news/also_in_the_news', 0]"
+"['/news/uk-england-cornwall-35837271', 0]"
+"['/news/england/cornwall', 0]"
+"['/news/uk-england-cornwall-35837271', 0]"
+"['/news/entertainment-arts-35836561', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35836561', 0]"
+"['http://www.bbc.co.uk/news/the_reporters', 0]"
+"['/news/health-35806264', 0]"
+"['/news/correspondents/nicktriggle', 0]"
+"['/news/health', 0]"
+"['/news/health-35806264', 0]"
+"['/news/uk-35830270', 0]"
+"['/news/correspondents/nikkifox', 0]"
+"['/news/uk', 0]"
+"['/news/uk-35830270', 0]"
+"['/news/world-latin-america-35809367', 0]"
+"['/news/world/latin_america', 0]"
+"['/news/world-latin-america-35809367', 0]"
+"['/news/uk-wales-35640961', 0]"
+"['/news/wales', 0]"
+"['/news/uk-wales-35640961', 0]"
+"['/news/magazine-35832554', 0]"
+"['/news/magazine', 0]"
+"['/news/magazine-35832554', 0]"
+"['/news/magazine-35832550', 0]"
+"['/news/magazine', 0]"
+"['/news/magazine-35832550', 0]"
+"['/news/magazine-35817492', 0]"
+"['/news/magazine', 0]"
+"['/news/magazine-35817492', 0]"
+"['/news/entertainment-arts-35813124', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35813124', 0]"
+"['/news/business-35807556', 0]"
+"['/news/business', 0]"
+"['/news/business-35807556', 0]"
+"['http://www.bbc.co.uk/news/explainers', 0]"
+"['http://bbc.in/1pqgCli', 0]"
+"['http://bbc.in/1pqgCli', 0]"
+"['/news/election-us-2016-35713168', 0]"
+"['/news/election/us2016', 0]"
+"['/news/election-us-2016-35713168', 0]"
+"['/news/science-environment-35708999', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/science-environment-35708999', 0]"
+"['http://m.bbc.co.uk/sport', 0]"
+"['/sport/live/35716467', 0]"
+"['/sport/0/', 0]"
+"['/sport/live/35716467', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/formula1', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/football', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/cricket/35834588', 0]"
+"['/sport/cricket', 0]"
+"['/sport/cricket/35834588', 0]"
+"['/weather', 0]"
+"['/weather', 0]"
+"['/ws/languages', 0]"
+"['/news/10318089', 0]"
+"['http://www.bbc.co.uk/iplayer/console/bbc_radio_four', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/election/us2016', 0]"
+"['/news/election-us-2016-35836099', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world/asia', 0]"
+"['/news/world-asia-35836853', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/world/europe', 0]"
+"['/news/world-europe-35840397', 0]"
+"['/news/business-35831313', 0]"
+"['/news/business', 0]"
+"['/news/business-35831313', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/entertainment-arts-35835441', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/world-us-canada-35836284', 0]"
+"['/news/have_your_say', 0]"
+"['mailto:haveyoursay@bbc.co.uk', 0]"
+"['https://twitter.com/BBC_HaveYourSay', 0]"
+"['https://www.facebook.com/bbcnews', 0]"
+"['https://twitter.com/BBCNews', 0]"
+"['http://www.bbc.co.uk/news/help/16617948', 0]"
+"['http://feeds.bbci.co.uk/news/rss.xml?edition=uk', 0]"
+"['http://www.bbc.co.uk/guides/zqmkqty', 0]"
+"['http://www.bbc.co.uk/guides/zqmkqty', 0]"
+"['http://www.bbc.co.uk/programmes/articles/1mwr21JPNWZPbM2bd70tQkY/ben-wheatley-the-lowdown-on-high-rise?intc_type=promo&intc_location=news&intc_campaign=highriselowdown&intc_linkname=arts_ent_article1', 0]"
+"['http://www.bbc.co.uk/programmes/articles/1mwr21JPNWZPbM2bd70tQkY/ben-wheatley-the-lowdown-on-high-rise?intc_type=promo&intc_location=news&intc_campaign=highriselowdown&intc_linkname=arts_ent_article1', 0]"
+"['/news', 0]"
+"['/news/uk', 0]"
+"['/news/uk', 0]"
+"['/news/england', 0]"
+"['/news/northern_ireland', 0]"
+"['/news/scotland', 0]"
+"['/naidheachdan', 0]"
+"['/news/wales', 0]"
+"['/cymrufyw', 0]"
+"['/news/world', 0]"
+"['/news/world', 0]"
+"['/news/world/africa', 0]"
+"['/news/world/asia', 0]"
+"['/news/world/australia', 0]"
+"['/news/world/europe', 0]"
+"['/news/world/latin_america', 0]"
+"['/news/world/middle_east', 0]"
+"['/news/world/us_and_canada', 0]"
+"['/news/business', 0]"
+"['/news/business', 0]"
+"['/news/business/your_money', 0]"
+"['http://www.bbc.co.uk/news/business/market_data', 0]"
+"['/news/business/markets', 0]"
+"['/news/business/companies', 0]"
+"['/news/business/economy', 0]"
+"['/news/politics', 0]"
+"['/news/politics', 0]"
+"['/news/politics/parliaments', 0]"
+"['/news/politics/eu_referendum', 0]"
+"['/news/election/us2016', 0]"
+"['/news/technology', 0]"
+"['/news/science_and_environment', 0]"
+"['/news/health', 0]"
+"['/news/education', 0]"
+"['/news/education', 0]"
+"['/schoolreport', 0]"
+"['/news/business-12686570', 0]"
+"['/news/entertainment_and_arts', 0]"
+"['/news/video_and_audio/video', 0]"
+"['/news/magazine', 0]"
+"['/news/in_pictures', 0]"
+"['/news/also_in_the_news', 0]"
+"['/news/special_reports', 0]"
+"['/news/explainers', 0]"
+"['/news/the_reporters', 0]"
+"['/news/have_your_say', 0]"
+"['/news/disability', 0]"
+"['http://www.bbc.co.uk/news/10628994', 0]"
+"['http://www.bbc.co.uk/news/help-17655000', 0]"
+"['http://www.bbc.co.uk/news/10628323', 0]"
+"['http://www.bbc.co.uk/news/20039682', 0]"
+"['http://www.bbc.co.uk/news/', 0]"
+"['http://www.bbc.com/news/', 0]"
+"['/sport/', 0]"
+"['/weather/', 0]"
+"['http://shop.bbc.com/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['http://www.bbc.com/travel/', 0]"
+"['http://www.bbc.com/capital/', 0]"
+"['/iplayer/', 0]"
+"['http://www.bbc.com/culture/', 0]"
+"['http://www.bbc.com/autos/', 0]"
+"['http://www.bbc.com/future/', 0]"
+"['/tv/', 0]"
+"['/radio/', 0]"
+"['/cbbc', 0]"
+"['/cbeebies', 0]"
+"['/food/', 0]"
+"['/iwonder', 0]"
+"['/education', 0]"
+"['/travel/', 0]"
+"['/music/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['/arts/', 0]"
+"['/makeitdigital', 0]"
+"['/taster', 0]"
+"['/nature/', 0]"
+"['/local/', 0]"
+"['/terms/', 0]"
+"['/aboutthebbc/', 0]"
+"['/privacy/', 0]"
+"['/privacy/cookies/about', 0]"
+"['/accessibility/', 0]"
+"['/guidance/', 0]"
+"['/contact/', 0]"
+"['http://advertising.bbcworldwide.com/', 0]"
+"['/privacy/cookies/international/', 0]"
+"['/help/web/links/', 0]"
+"['/', 0]"
+"['/accessibility/', 0]"
+"['/id/status?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fsport', 0]"
+"['#', 0]"
+"['http://www.bbc.co.uk/news/', 0]"
+"['http://www.bbc.com/news/', 0]"
+"['/sport/', 0]"
+"['/weather/', 0]"
+"['http://shop.bbc.com/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['http://www.bbc.com/travel/', 0]"
+"['http://www.bbc.com/capital/', 0]"
+"['/iplayer/', 0]"
+"['http://www.bbc.com/culture/', 0]"
+"['http://www.bbc.com/autos/', 0]"
+"['http://www.bbc.com/future/', 0]"
+"['/tv/', 0]"
+"['/radio/', 0]"
+"['/cbbc', 0]"
+"['/cbeebies', 0]"
+"['/food/', 0]"
+"['/iwonder', 0]"
+"['/education', 0]"
+"['/travel/', 0]"
+"['/music/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['/arts/', 0]"
+"['/makeitdigital', 0]"
+"['/taster', 0]"
+"['/nature/', 0]"
+"['/local/', 0]"
+"['#orb-footer', 0]"
+"['http://search.bbc.co.uk/search', 0]"
+"['/sport', 0]"
+"['/sport/all-sports', 0]"
+"['/sport/all-sports', 0]"
+"['/sport/my-sport', 0]"
+"['/sport', 0]"
+"['/sport/football', 0]"
+"['/sport/formula1', 0]"
+"['/sport/cricket', 0]"
+"['/sport/rugby-union', 0]"
+"['/sport/rugby-league', 0]"
+"['/sport/tennis', 0]"
+"['/sport/golf', 0]"
+"['/sport/athletics', 0]"
+"['/sport', 0]"
+"['/sport/football', 0]"
+"['/sport/formula1', 0]"
+"['/sport/cricket', 0]"
+"['/sport/rugby-union', 0]"
+"['/sport/rugby-league', 0]"
+"['/sport/tennis', 0]"
+"['/sport/golf', 0]"
+"['/sport/athletics', 0]"
+"['/sport/my-sport', 0]"
+"['/sport/american-football', 0]"
+"['/sport/athletics', 0]"
+"['/sport/get-inspired/bodypositive', 0]"
+"['/sport/boxing', 0]"
+"['/sport/cricket', 0]"
+"['/sport/cycling', 0]"
+"['/sport/disability-sport', 0]"
+"['/sport/football', 0]"
+"['/sport/formula1', 0]"
+"['/sport/northern-ireland/gaelic-games', 0]"
+"['/sport/get-inspired', 0]"
+"['/sport/golf', 0]"
+"['/sport/horse-racing', 0]"
+"['/sport/motorsport', 0]"
+"['/sport/olympics', 0]"
+"['/sport/rugby-league', 0]"
+"['/sport/rugby-union', 0]"
+"['/sport/snooker', 0]"
+"['/sport/swimming', 0]"
+"['/sport/tennis', 0]"
+"['/sport/winter-sports', 0]"
+"['/sport/all-sports', 0]"
+"['/sport/football/european-championship/euro-2016', 0]"
+"['/sport/olympics/rio-2016', 0]"
+"['/sport/england', 0]"
+"['/sport/scotland', 0]"
+"['/sport/wales', 0]"
+"['/sport/northern-ireland', 0]"
+"['/iplayer/tv/categories/sport', 0]"
+"['/programmes/b007t9y1', 0]"
+"['/5live/programmes/genres/sport/current', 0]"
+"['/sport/sports-personality', 0]"
+"['/sport/17151954', 0]"
+"['/iplayer/tv/categories/sport', 0]"
+"['/sport/live/35716467', 0]"
+"['/sport/live/35716467', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/formula1', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/football', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/cricket/35834588', 0]"
+"['/sport/cricket', 0]"
+"['/sport/cricket/35834588', 0]"
+"['/sport/horse-racing/35835180', 0]"
+"['/sport/horse-racing', 0]"
+"['/sport/horse-racing/35835180', 0]"
+"['/sport/rugby-union/35838833', 0]"
+"['/sport/rugby-union', 0]"
+"['/sport/rugby-union/35838833', 0]"
+"['/sport/football/35838808', 0]"
+"['/sport/football/european', 0]"
+"['/sport/football/35838808', 0]"
+"['/sport/rugby-union/35837685', 0]"
+"['/sport/rugby-union/english', 0]"
+"['/sport/rugby-union/35837685', 0]"
+"['/sport/tennis/35838667', 0]"
+"['/sport/tennis', 0]"
+"['/sport/tennis/35838667', 0]"
+"['/sport/horse-racing/35836195', 0]"
+"['/sport/horse-racing', 0]"
+"['/sport/horse-racing/35836195', 0]"
+"['/sport/disability-sport/35835072', 0]"
+"['/sport/disability-sport', 0]"
+"['/sport/disability-sport/35835072', 0]"
+"['/sport/football/35838706', 0]"
+"['/sport/football', 0]"
+"['/sport/football/35838706', 0]"
+"['/sport/athletics/35830530', 0]"
+"['/sport/athletics', 0]"
+"['/sport/athletics/35830530', 0]"
+"['/sport/rugby-union/35834956', 0]"
+"['/sport/rugby-union/english', 0]"
+"['/sport/rugby-union/35834956', 0]"
+"['/sport/golf/35838536', 0]"
+"['/sport/golf', 0]"
+"['/sport/golf/35838536', 0]"
+"['/sport/rugby-league/35813241', 0]"
+"['/sport/rugby-league', 0]"
+"['/sport/rugby-league/35813241', 0]"
+"['/sport/football/35815545', 0]"
+"['/sport/football', 0]"
+"['/sport/football/35815545', 0]"
+"['/sport/cricket/35834188', 0]"
+"['/sport/cricket', 0]"
+"['/sport/cricket/35834188', 0]"
+"['/sport/football/fixtures', 0]"
+"['/sport/football/35781504', 0]"
+"['/sport/football/championship/live-scores', 0]"
+"['/sport/football/gossip', 0]"
+"['/sport/football/gossip', 0]"
+"['/sport/get-inspired/33158592', 0]"
+"['/sport/rugby-union/35358304', 0]"
+"['/sport/football/live-scores', 0]"
+"['/sport/football/fixtures', 0]"
+"['/sport/football/results', 0]"
+"['/sport/football/tables', 0]"
+"['/sport/cricket/scorecard/ECKP90314', 0]"
+"['/sport/cricket/scorecard/ECKP90315', 0]"
+"['/sport/cricket/35090441', 0]"
+"['/sport/cricket/world-twenty20/table', 0]"
+"['/sport/cricket/35546146', 0]"
+"['/sport/horse-racing/35639829', 0]"
+"['/sport/horse-racing/uk-ireland/results', 0]"
+"['javascript:void(0)', 0]"
+"['/sport/rugby-union/six-nations/fixtures', 0]"
+"['/sport/rugby-union/six-nations/results', 0]"
+"['/sport/rugby-union/six-nations/table', 0]"
+"['/sport/rugby-union/womens-six-nations/fixtures', 0]"
+"['/sport/rugby-union/womens-six-nations/results', 0]"
+"['/sport/rugby-union/womens-six-nations/table', 0]"
+"['javascript:void(0)', 0]"
+"['/sport/golf/uspga-tour/leaderboard', 0]"
+"['/sport/golf/european-tour/leaderboard', 0]"
+"['/sport/golf/lpga-tour/leaderboard', 0]"
+"['javascript:void(0)', 0]"
+"['/sport/athletics/34214296', 0]"
+"['javascript:void(0)', 0]"
+"['/sport/rugby-league/live-scores', 0]"
+"['/sport/rugby-league/fixtures', 0]"
+"['/sport/rugby-league/super-league/table', 0]"
+"['javascript:void(0)', 0]"
+"['/sport/34453641', 0]"
+"['/sport/disability-sport/20271169', 0]"
+"['/sport/rugby-union/35835310', 0]"
+"['/sport/rugby-union/35835310', 0]"
+"['/sport/cricket/35831299', 0]"
+"['/sport/cricket/35831299', 0]"
+"['/sport/football/35832991', 0]"
+"['/sport/football/35832991', 0]"
+"['/sport/cricket/35837733', 0]"
+"['/sport/cricket/35837733', 0]"
+"['/sport/football/35832844', 0]"
+"['/sport/football/35832844', 0]"
+"['/sport/athletics/35835177', 0]"
+"['/sport/athletics/35835177', 0]"
+"['/sport/football/35835184', 0]"
+"['/sport/football/35835184', 0]"
+"['/sport/cricket/35820346', 0]"
+"['/sport/cricket/35820346', 0]"
+"['/sport/cricket/35832838', 0]"
+"['/sport/cricket/35832838', 0]"
+"['/sport/live/35716467', 0]"
+"['/sport/live/cricket/35625029', 0]"
+"['/sport/live/athletics/35625320', 0]"
+"['http://www.bbc.co.uk/programmes/b073m894', 0]"
+"['/sport/live/rugby-union/35810774', 0]"
+"['/sport/live/football/35810777', 0]"
+"['/sport/get-inspired/35775256', 0]"
+"['/sport/get-inspired/scotland', 0]"
+"['/sport/get-inspired/35775256', 0]"
+"['/sport/formula1/35829612', 0]"
+"['/sport/formula1', 0]"
+"['/sport/formula1/35829612', 0]"
+"['/sport/football/35798388', 0]"
+"['/sport/football', 0]"
+"['/sport/football/35798388', 0]"
+"['/sport/cricket/35774022', 0]"
+"['/sport/cricket', 0]"
+"['/sport/cricket/35774022', 0]"
+"['/sport/rugby-union/35819358', 0]"
+"['/sport/rugby-union', 0]"
+"['/sport/rugby-union/35819358', 0]"
+"['/sport/olympics/35773669', 0]"
+"['/sport/olympics', 0]"
+"['/sport/olympics/35773669', 0]"
+"['/sport/get-inspired/33158592', 0]"
+"['/sport/get-inspired', 0]"
+"['/sport/get-inspired/33158592', 0]"
+"['/sport/17151954', 0]"
+"['/sport', 0]"
+"['/sport/17151954', 0]"
+"['http://www.bbc.co.uk/thingstodo/activity/the-sport-relief-swimathon-742', 0]"
+"['http://www.bbc.co.uk/thingstodo/activity/the-sport-relief-swimathon-743', 0]"
+"['http://www.bbc.co.uk/getinspired', 0]"
+"['/sport/football/35815538', 0]"
+"['/sport/england', 0]"
+"['/sport/football/35815538', 0]"
+"['/sport/tennis/35838667', 0]"
+"['/sport/scotland', 0]"
+"['/sport/tennis/35838667', 0]"
+"['/sport/football/35835879', 0]"
+"['/sport/wales', 0]"
+"['/sport/football/35835879', 0]"
+"['/sport/rugby-union/35831162', 0]"
+"['/sport/northern-ireland', 0]"
+"['/sport/rugby-union/35831162', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/football', 0]"
+"['/sport/football/35835435', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/formula1', 0]"
+"['/sport/formula1/35839885', 0]"
+"['/sport/cricket/35834188', 0]"
+"['/sport/cricket', 0]"
+"['/sport/cricket/35834188', 0]"
+"['/sport/rugby-union/35838833', 0]"
+"['/sport/rugby-union', 0]"
+"['/sport/rugby-union/35838833', 0]"
+"['/sport/rugby-league/35813241', 0]"
+"['/sport/rugby-league', 0]"
+"['/sport/rugby-league/35813241', 0]"
+"['/sport/tennis/35838667', 0]"
+"['/sport/tennis', 0]"
+"['/sport/tennis/35838667', 0]"
+"['/sport/golf/35838536', 0]"
+"['/sport/golf', 0]"
+"['/sport/golf/35838536', 0]"
+"['/sport/athletics/35830530', 0]"
+"['/sport/athletics', 0]"
+"['/sport/athletics/35830530', 0]"
+"['#', 0]"
+"['None', 0]"
+"['#sport-container', 0]"
+"['/sport/15890345', 0]"
+"['/sport/15561348', 0]"
+"['http://www.bbc.co.uk/news/', 0]"
+"['http://www.bbc.com/news/', 0]"
+"['/sport/', 0]"
+"['/weather/', 0]"
+"['http://shop.bbc.com/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['http://www.bbc.com/travel/', 0]"
+"['http://www.bbc.com/capital/', 0]"
+"['/iplayer/', 0]"
+"['http://www.bbc.com/culture/', 0]"
+"['http://www.bbc.com/autos/', 0]"
+"['http://www.bbc.com/future/', 0]"
+"['/tv/', 0]"
+"['/radio/', 0]"
+"['/cbbc', 0]"
+"['/cbeebies', 0]"
+"['/food/', 0]"
+"['/iwonder', 0]"
+"['/education', 0]"
+"['/travel/', 0]"
+"['/music/', 0]"
+"['http://www.bbc.com/earth/', 0]"
+"['/arts/', 0]"
+"['/makeitdigital', 0]"
+"['/taster', 0]"
+"['/nature/', 0]"
+"['/local/', 0]"
+"['/terms/', 0]"
+"['/aboutthebbc/', 0]"
+"['/privacy/', 0]"
+"['/privacy/cookies/about', 0]"
+"['/accessibility/', 0]"
+"['/guidance/', 0]"
+"['/contact/', 0]"
+"['http://advertising.bbcworldwide.com/', 0]"
+"['/privacy/cookies/international/', 0]"
+"['/help/web/links/', 0]"
+"['http://m.bbc.co.uk', 0]"
+"['/', 0]"
+"['#blq-content', 0]"
+"['#blq-local-nav', 0]"
+"['/accessibility/', 0]"
+"['https://ssl.bbc.co.uk/id/status', 0]"
+"['https://ssl.bbc.co.uk/id/settings', 0]"
+"['https://ssl.bbc.co.uk/id/signout', 0]"
+"['http://www.bbc.co.uk/news/', 0]"
+"['http://www.bbc.co.uk/sport', 0]"
+"['http://www.bbc.co.uk/weather/', 0]"
+"['/iplayer/', 0]"
+"['/tv/', 0]"
+"['/radio/', 0]"
+"['#blq-footlinks', 0]"
+"['/weather/', 0]"
+"['/weather/?tempUnit=F', 0]"
+"['/weather/?windUnit=K', 0]"
+"['/weather/ga', 0]"
+"['/weather/gd', 0]"
+"['/weather/cy', 0]"
+"['/weather/2635167', 0]"
+"['/weather/2635167#outlook', 0]"
+"['/weather/coast_and_sea', 0]"
+"['http://www.bbc.co.uk/weather/features/35727564', 0]"
+"['/weather/features/18877641', 0]"
+"['/weather/2655984', 0]"
+"['/weather/2653822', 0]"
+"['/weather/2650225', 0]"
+"['/weather/2643743', 0]"
+"['/weather/2643123', 0]"
+"['/weather/3042091', 0]"
+"['/weather/2644605', 0]"
+"['/weather/features/35835959', 0]"
+"['/weather/features/35835955', 0]"
+"['/weather/feeds/31933945', 0]"
+"['http://faq.external.bbc.co.uk/questions/bbc_online/adverts_general', 0]"
+"['http://www.bbc.co.uk/weatherwatchers', 0]"
+"['/weather/features/35822274', 0]"
+"['/weather/features/35822274', 0]"
+"['/weather/features/35822274', 0]"
+"['/weather/features/35822274', 0]"
+"['/weather/features/35822274', 0]"
+"['/weather/2635167', 0]"
+"['/weather/coast_and_sea', 0]"
+"['/weather/features/18877641', 0]"
+"['/travel', 0]"
+"['http://www.metoffice.gov.uk/', 0]"
+"['http://www.wmo.int/', 0]"
+"['/weather/about/19119489', 0]"
+"['/weather/about/17543675', 0]"
+"['/weather/about/19086178', 0]"
+"['/weather/about/17185651', 0]"
+"['http://www.metoffice.gov.uk/', 0]"
+"['http://m.bbc.co.uk/weather', 0]"
+"['/terms/', 0]"
+"['/aboutthebbc/', 0]"
+"['/privacy/', 0]"
+"['/accessibility/', 0]"
+"['/privacy/cookies/about', 0]"
+"['/weather/contact_us', 0]"
+"['/guidance/', 0]"
+"['/help/web/links/', 0]"

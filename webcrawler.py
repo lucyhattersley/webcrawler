@@ -5,6 +5,7 @@ import urllib2
 
 def add_to_all_links(page_links, all_links):
     """
+    NOW TO ADD COUNTS
     Accepts page_links [list]
     Iterates through page_links and checks to see if the link is not already in all_links [list] 
         If not, appends link to all_links
@@ -12,7 +13,11 @@ def add_to_all_links(page_links, all_links):
     """
     for link in page_links:
         if link not in all_links:
-            all_links.append(link)
+            all_links.append([link,0])
+        else:
+            # FIND LINK IN ALL_LINKS[0]
+            # INCREASE THE COUNT BY 1
+            pass
     print all_links
     return all_links
 
@@ -156,7 +161,11 @@ def scan_website(start_page, max_pages):
 
     return all_links
 
+# TEST TO FIND OUTPUT FROM ALL_LINKS
 all_links = scan_website('http://news.bbc.co.uk', 20)
+for link in all_links:
+    print "Page:" + str(link[0])
+    print "Count:" + str(link[1])
 
 # Writes alL_links to CSV file
 with open('pages_tracked.csv', 'wb') as f:
