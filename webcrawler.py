@@ -40,8 +40,15 @@ def get_soup(webpage):
     Creates a soup [Beautiful Soup instance] from the response using html.parser
     Returns soup
     """
-    request = urllib2.Request(webpage)
-    response = urllib2.urlopen(request)
+    request_headers = {
+"Accept-Language": "en-US,en;q=0.5",
+"User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0",
+"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+"Referer": "http://thewebsite.com",
+"Connection": "keep-alive" 
+}
+    request = urllib2.Request(webpage, headers=request_headers)
+    response = urllib2.urlopen(request).read()
     soup = BeautifulSoup(response, "html.parser")
     return soup
 
@@ -54,7 +61,7 @@ def find_internal_links(page_links, start_page):
     """
     internal_links = []
     for link in page_links:
-    	link = expand_link(link, start_page)
+       	link = expand_link(link, start_page)
         if is_internal(link, start_page):
             internal_links.append(link)
     return internal_links
@@ -64,7 +71,8 @@ def find_domain(webpage):
     Accepts webpage [string] and removes the Protocol, Subdomain and Path. Returns domain [string]
     Example: if webpage is "http://news.google.com/world" then domain is "google.com"
     """
-    return webpage.split('/')[2]
+    domain = webpage.split('/')[2]
+    return domain
 
 def is_internal(link, start_page):
     """
@@ -74,9 +82,9 @@ def is_internal(link, start_page):
     Checks both domains against each other to find if they match.
     Returns True if they are from the same domain 
     """
-    try: 
+    start_page_domain = find_domain(start_page)
+    try:
         link_domain = find_domain(link)
-        start_page_domain = find_domain(start_page)
         return link_domain in start_page_domain or start_page_domain in link_domain
         # Uses 'or' to see if either domain fits inside the other.
         # this ensures that google.com and www.google.com match regardless of which way around they are
@@ -116,6 +124,8 @@ def expand_link(link, start_page):
         Else if start_page [string] ends in '/',  strips the '/' it to prevent duplicate in path
     Returns new_link
     """
+    if link == "":
+        return start_page
     if link[0] == '/':
         if start_page[-1:] == '/':
             new_link = start_page[:-1] + link # If relative URL ends in a '/' - removes it so you don't get '//' in newlink
@@ -123,7 +133,6 @@ def expand_link(link, start_page):
             new_link = start_page + link
     else:
         new_link = link
-        
     return new_link
 
 def scan_website(start_page, max_pages):
@@ -144,7 +153,7 @@ def scan_website(start_page, max_pages):
             soup = get_soup(current_page)
             page_links = scan_for_links(soup)
             all_links = add_to_all_links(page_links, all_links)
-            internal_links = find_internal_links(page_links, start_page)            
+            internal_links = find_internal_links(page_links, start_page)
             for page in internal_links:
                 if page not in pages_tracked and page not in pages_to_track:
                     if is_valid(page):
@@ -161,7 +170,7 @@ def scan_website(start_page, max_pages):
     return all_links
 
 # Run main program
-all_links = scan_website('http://www.techradar.com', 200)
+all_links = scan_website('http://www.macworld.co.uk', 20)
 
 # Writes alL_links to CSV file
 with open('pages_tracked.csv', 'wb') as f:
