@@ -139,6 +139,7 @@ def expand_link(link, start_page):
 
 def scan_website(start_page, max_pages):
     """
+    THIS NEEDS TO RESPOND TO ROBOTS.TXT FILE.
     Accepts start_page [string], a URL, and max_pages[int]
     Adds start_page to pages_to_track [list]. Then scans page for links and adds
     internal links to pages_to_track.
@@ -153,7 +154,7 @@ def scan_website(start_page, max_pages):
         try:
             current_page = pages_to_track.pop(0)
             soup = get_soup(current_page)
-            #time.sleep(2)
+            #time.sleep(2) # this is for reddit
             page_links = scan_for_links(soup)
             all_links = add_to_all_links(page_links, all_links)
             internal_links = find_internal_links(page_links, start_page)

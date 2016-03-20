@@ -180,7 +180,7 @@ for website in websites:
     domain = find_domain(website)
     savefile = 'output/' + domain + '.csv'
 
-    maxpages = 10
+    maxpages = 10000
 
     print "Starting: " + domain
     all_links = scan_website(website, maxpages)
