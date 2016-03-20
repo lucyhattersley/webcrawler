@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import csv
-import urllib2
+#import urllib2
+import httplib
 import time
 
 
@@ -48,8 +49,11 @@ def get_soup(webpage):
 "Referer": "http://thewebsite.com",
 "Connection": "keep-alive" 
 }
-    request = urllib2.Request(webpage, headers=request_headers)
-    response = urllib2.urlopen(request).read()
+    webpage.replace("http://","") # httplib needs urls without protocol
+    webpage.replace("https://","")
+    conn = httplib.HTTPConnection(url)
+    conn.request('GET', headers=hdr)
+    response = conn.getresponse().read()
     soup = BeautifulSoup(response, "html.parser")
     return soup
 
@@ -152,6 +156,7 @@ def scan_website(start_page, max_pages):
         try:
             current_page = pages_to_track.pop(0)
             soup = get_soup(current_page)
+            time.sleep(2)
             page_links = scan_for_links(soup)
             all_links = add_to_all_links(page_links, all_links)
             internal_links = find_internal_links(page_links, start_page)
