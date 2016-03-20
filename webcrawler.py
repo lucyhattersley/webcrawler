@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import csv
-#import urllib2
-import httplib
+import requests
 import time
 
 
@@ -49,15 +48,10 @@ def get_soup(webpage):
 "Referer": "http://thewebsite.com",
 "Connection": "keep-alive" 
 }
-    # FIXING REDDIT
-    # I need to move from urllib2 to httplib
-    # Reference: 
-    webpage.replace("http://","") # httplib needs urls without protocol
-    webpage.replace("https://","")
-    conn = httplib.HTTPConnection(url)
-    conn.request('GET', headers=hdr)
-    response = conn.getresponse().read()
-    soup = BeautifulSoup(response, "html.parser")
+    print webpage    
+    response = requests.get(webpage, headers=request_headers)
+    response.status_code
+    soup = BeautifulSoup(response.text, "html.parser")
     return soup
 
 def find_internal_links(page_links, start_page):
@@ -159,7 +153,7 @@ def scan_website(start_page, max_pages):
         try:
             current_page = pages_to_track.pop(0)
             soup = get_soup(current_page)
-            time.sleep(2)
+            #time.sleep(2)
             page_links = scan_for_links(soup)
             all_links = add_to_all_links(page_links, all_links)
             internal_links = find_internal_links(page_links, start_page)
@@ -171,7 +165,7 @@ def scan_website(start_page, max_pages):
             pass # skips pages that don't respond
 
         count += 1
-        print "Number of pages tracked: " + str(count)
+        #print "Number of pages tracked: " + str(count)
         
         if current_page not in pages_tracked:
             pages_tracked.append(current_page)
@@ -181,12 +175,12 @@ def scan_website(start_page, max_pages):
 # Run main program
 websites = [line.rstrip('\n') for line in open('websites.txt')]
 
-for website in websites[:-1]:
+for website in websites:
     start_time = time.time()
     domain = find_domain(website)
     savefile = 'output/' + domain + '.csv'
 
-    maxpages = 10
+    maxpages = 10000
 
     print "Starting: " + domain
     all_links = scan_website(website, maxpages)
@@ -196,4 +190,3 @@ for website in websites[:-1]:
         for row in all_links:
             writer.writerow(row)
     print(domain + " --- %s seconds ---"% (time.time() - start_time))
-
