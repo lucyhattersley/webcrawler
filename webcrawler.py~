@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import csv
 import urllib2
+import time
 
 
 def add_to_all_links(page_links, all_links):
@@ -30,7 +31,6 @@ def scan_for_links(soup):
     links = []
     for link in soup.find_all('a'):
         links.append(str(link.get('href')))
-    print soup.title
 
     return links
 
@@ -171,10 +171,21 @@ def scan_website(start_page, max_pages):
     return all_links
 
 # Run main program
-all_links = scan_website('http://www.macworld.co.uk', 20)
+websites = [line.rstrip('\n') for line in open('websites.txt')]
 
-# Writes alL_links to CSV file
-with open('pages_tracked.csv', 'wb') as f:
-    writer = csv.writer(f)
-    for row in all_links:
-        writer.writerow(row)
+for website in websites[:-1]:
+    start_time = time.time()
+    domain = find_domain(website)
+    savefile = 'output/' + domain + '.csv'
+
+    maxpages = 10
+
+    print "Starting: " + domain
+    all_links = scan_website(website, maxpages)
+    # Writes alL_links to CSV file
+    with open(savefile, 'wb') as f:
+        writer = csv.writer(f)
+        for row in all_links:
+            writer.writerow(row)
+    print(domain + " --- %s seconds ---"% (time.time() - start_time))
+
