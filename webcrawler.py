@@ -2,7 +2,10 @@ from bs4 import BeautifulSoup
 import csv
 import requests
 import time
+import robotparser
 
+# IMPLEMENT ROBOTPARSER BEFORE GOING ANY FURTHER
+#http://www.the-art-of-web.com/php/parse-robots/
 
 def add_to_all_links(page_links, all_links):
     """
