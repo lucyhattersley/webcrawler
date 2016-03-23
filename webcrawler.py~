@@ -4,14 +4,8 @@ import requests
 import time
 import robotparser
 
-#It's time for OOP!!!
-#
-#class website:
-#    pass
-
-#class webpage:
-#    pass 
-
+# IMPLEMENT ROBOTPARSER BEFORE GOING ANY FURTHER
+#http://www.the-art-of-web.com/php/parse-robots/
 
 def add_to_all_links(page_links, all_links):
     """

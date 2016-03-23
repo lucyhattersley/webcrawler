@@ -6,6 +6,8 @@ import robotparser
 
 # IMPLEMENT ROBOTPARSER BEFORE GOING ANY FURTHER
 #http://www.the-art-of-web.com/php/parse-robots/
+# Consider Reppy instead
+# https://github.com/seomoz/reppy/blob/master/README.md
 
 def add_to_all_links(page_links, all_links):
     """
@@ -27,8 +29,8 @@ def add_to_all_links(page_links, all_links):
 
 def scan_for_links(soup):
     """
-    Takes soup [Beautiful Soup object]
     Finds all URLs in soup and adds to links [list]
+    Takes soup [Beautiful Soup object]
     Returns links
     """
     links = []
