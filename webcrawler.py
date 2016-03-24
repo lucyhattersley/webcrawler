@@ -2,12 +2,7 @@ from bs4 import BeautifulSoup
 import csv
 import requests
 import time
-import robotparser
-
-# IMPLEMENT ROBOTPARSER BEFORE GOING ANY FURTHER
-#http://www.the-art-of-web.com/php/parse-robots/
-# Consider Reppy instead
-# https://github.com/seomoz/reppy/blob/master/README.md
+from reppy.cache import RobotsCache
 
 def add_to_all_links(page_links, all_links):
     """
@@ -123,6 +118,9 @@ def is_valid(link):
     
     return True
 
+def robot_pass(page):
+    robots = RobotsCache()
+    return robots.allowed(page, '*')
 
 def expand_link(link, start_page):
     """
@@ -159,14 +157,17 @@ def scan_website(start_page, max_pages):
         try:
             current_page = pages_to_track.pop(0)
             soup = get_soup(current_page)
-            #time.sleep(2) # this is for reddit
+            time.sleep(2) #crawl-delay
             page_links = scan_for_links(soup)
             all_links = add_to_all_links(page_links, all_links)
             internal_links = find_internal_links(page_links, start_page)
             for page in internal_links:
                 if page not in pages_tracked and page not in pages_to_track:
                     if is_valid(page):
-                        pages_to_track.append(page)
+                        if robot_pass(page):
+                            pages_to_track.append(page)
+                        else:
+                            print page + " failed robot_pass"
         except:
             pass # skips pages that don't respond
 
@@ -186,7 +187,7 @@ for website in websites:
     domain = find_domain(website)
     savefile = 'output/' + domain + '.csv'
 
-    maxpages = 10000
+    maxpages = 10
 
     print "Starting: " + domain
     all_links = scan_website(website, maxpages)
