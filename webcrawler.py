@@ -119,7 +119,13 @@ def is_valid(link):
     return True
 
 def robot_pass(page):
-    robots = RobotsCache()
+    """
+    Accepts page [string] containing a URL
+    creates a robots cache
+    Checks if the page is allowed according to the sites 'robots.txt' file.
+    Returns True or False
+    """
+    robots = RobotsCache() # is this wasteful? Consider moving outside of def
     return robots.allowed(page, '*')
 
 def expand_link(link, start_page):
@@ -142,7 +148,6 @@ def expand_link(link, start_page):
 
 def scan_website(start_page, max_pages):
     """
-    THIS NEEDS TO RESPOND TO ROBOTS.TXT FILE.
     Accepts start_page [string], a URL, and max_pages[int]
     Adds start_page to pages_to_track [list]. Then scans page for links and adds
     internal links to pages_to_track.
@@ -166,8 +171,6 @@ def scan_website(start_page, max_pages):
                     if is_valid(page):
                         if robot_pass(page):
                             pages_to_track.append(page)
-                        else:
-                            print page + " failed robot_pass"
         except:
             pass # skips pages that don't respond
 
