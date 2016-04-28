@@ -14,20 +14,23 @@ class Site(object):
     def get_homepage(self):
         return self.homepage
 
-    def scan_website(self, max_pages):
+    # This needs changing from ongoing scan
+    # to single update
+    # pops a single page from pages_to_track
+    # finds all links in page
+    # updates pages_to_track, all_links and pages_tracked
+    def update(self):
         """
-        Accepts self [object], a URL, and max_pages[int]
+        Accepts self [object]
         Adds start_page to pages_to_track [list]. Then scans page for links and adds
         internal links to pages_to_track.
         Adds links found to all_links [list]
         Returns all_links.
         """
-        count = 0 # visual count of pages tracked (is displayed to console)
-        while count < max_pages and len(self.pages_to_track) > 0:
+        if len(self.pages_to_track) > 0:
             try:
                 current_page = self.pages_to_track.pop(0)
-                soup = get_soup(current_page)
-                time.sleep(2) # time delay
+                soup = current_page.get_soup()
                 self.page_links = current_page.scan_for_links(soup)
                 all_links = add_to_all_links(page_links, all_links)
                 internal_links = find_internal_links(page_links, start_page)
@@ -43,7 +46,8 @@ class Site(object):
             
             if current_page not in self.pages_tracked:
                 self.pages_tracked.append(current_page)
-
+        else:
+            pass
         return self.all_links
 
 class Page(Site):
