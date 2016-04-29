@@ -7,9 +7,10 @@ import string
 class Site(object):
     def __init__(self, homepage):
         self.homepage = homepage
+        print type(homepage)
         self.pages_to_track = [homepage]
         self.pages_tracked = []
-        self.all_links = []
+        self.all_pages = []
   
     def get_homepage(self):
         return self.homepage
@@ -30,10 +31,12 @@ class Site(object):
         if len(self.pages_to_track) > 0:
             try:
                 current_page = self.pages_to_track.pop(0)
-                soup = current_page.get_soup()
-                self.page_links = current_page.scan_for_links(soup)
-                all_links = add_to_all_links(page_links, all_links)
-                internal_links = find_internal_links(page_links, start_page)
+                soup = self.get_soup(current_page)
+                page_links = self.scan_for_links(soup)
+                print "page_links", page_links
+                self.add_to_all_links(page_links)
+                print self.all_links
+                internal_links = find_internal_links(page_links)
                 for page in internal_links:
                     if page not in self.pages_tracked and page not in self.pages_to_track:
                         if is_valid(page):
@@ -41,39 +44,37 @@ class Site(object):
             except:
                 pass # skips pages that don't respond
 
-            count += 1
-            print "Number of pages tracked: " + str(count)
+            # count += 1
+            # print "Number of pages tracked: " + str(count)
             
-            if current_page not in self.pages_tracked:
-                self.pages_tracked.append(current_page)
+            # if current_page.get_url() not in self.pages_tracked:
+            #     self.pages_tracked.append(current_page.get_url())
         else:
             pass
         return self.all_links
 
-class Page(Site):
-    def __init__(self,url,site):
-        super(Page, self).__init__(site)
-        self.url = url
-    
-    def get_url(self):
-        return self.url
-
-    def scan_for_links(self):
+    def add_to_all_links(page_links):
         """
-        Takes soup [Beautiful Soup object]
-        Finds all URLs in soup and adds to links [list]
-        Returns links
+        Accepts page_links [list] and all_links [list]
+        Iterates through page_links and checks to see if the link is not already in all_links [list]. If it finds the link, increases the count by one.
+        If not, appends link to all_links
+        Returns all_links
         """
-        soup = self.get_soup()
-        links = []
-        for link in soup.find_all('a'):
-            links.append(str(link.get('href')))
+        print "add_to_all_links ran"
+        for link in page_links:
+            link_found = False
+            for sublist in self.all_links:
+                if link == sublist[0]:                
+                    link_found = True #prevents duplicate pages                
+                    sublist[1] += 1
+                    break 
+            if link_found == False:
+                self.all_links.append([link,1])
+        return
 
-        return links
-
-    def get_soup(self):
+    def get_soup(self,url):
         """
-        Accepts webpage [string] containing a URL
+        Accepts url [string] containing a URL
         Uses urllib2 to generate a request and respone
         Creates a soup [Beautiful Soup instance] from the response using html.parser
         Returns soup
@@ -85,12 +86,31 @@ class Page(Site):
         "Referer": "http://thewebsite.com",
         "Connection": "keep-alive" 
         }
-        webpage = self.get_url()
-        response = requests.get(webpage, headers=request_headers)
+        response = requests.get(url, headers=request_headers)
         response.status_code
         soup = BeautifulSoup(response.text, "html.parser")
         return soup
 
+    def scan_for_links(self,soup):
+        """
+        Takes soup [Beautiful Soup object]
+        Finds all URLs in soup and adds to links [list]
+        Returns links
+        """
+        #soup = self.get_soup()
+        links = []
+        for link in soup.find_all('a'):
+            links.append(str(link.get('href')))
+
+        return links
+
+class Page(Site):
+    def __init__(self,url):
+        super(Page, self).__init__()
+        self.url = url
+    
+    def get_url(self):
+        return self.url
 
     def find_internal_links(self):
         """
@@ -154,13 +174,12 @@ class Page(Site):
         return domain
 
 
-# Create site to track (using 'www.trustedreviews.com' as example)
+# Create site to track (us ing 'www.trustedreviews.com' as example)
 # This will be updated with websites.txt integration after a single site is working
-site = Site('http://www.trustedreviews.co.uk')
+page = Page('http://www.trustedreviews.com')
+site = Site(page)
 
-page = Page('http://www.trustedreviews.co.uk/news',site.get_homepage())
 
-print page.is_internal('http://www.news.co.uk/features')
 
 
 # domain = find_domain(startpage)
