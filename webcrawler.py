@@ -119,13 +119,7 @@ def is_valid(link):
     return True
 
 def robot_pass(page):
-    """
-    Accepts page [string] containing a URL
-    creates a robots cache
-    Checks if the page is allowed according to the sites 'robots.txt' file.
-    Returns True or False
-    """
-    robots = RobotsCache() # is this wasteful? Consider moving outside of def
+    robots = RobotsCache()
     return robots.allowed(page, '*')
 
 def expand_link(link, start_page):
@@ -148,6 +142,7 @@ def expand_link(link, start_page):
 
 def scan_website(start_page, max_pages):
     """
+    THIS NEEDS TO RESPOND TO ROBOTS.TXT FILE.
     Accepts start_page [string], a URL, and max_pages[int]
     Adds start_page to pages_to_track [list]. Then scans page for links and adds
     internal links to pages_to_track.
@@ -162,11 +157,7 @@ def scan_website(start_page, max_pages):
         try:
             current_page = pages_to_track.pop(0)
             soup = get_soup(current_page)
-<<<<<<< HEAD
             time.sleep(2) #crawl-delay
-=======
-            time.sleep(2) # time delay
->>>>>>> oop
             page_links = scan_for_links(soup)
             all_links = add_to_all_links(page_links, all_links)
             internal_links = find_internal_links(page_links, start_page)
@@ -175,11 +166,13 @@ def scan_website(start_page, max_pages):
                     if is_valid(page):
                         if robot_pass(page):
                             pages_to_track.append(page)
+                        else:
+                            print page + " failed robot_pass"
         except:
             pass # skips pages that don't respond
 
         count += 1
-        print "Number of pages tracked: " + str(count)
+        #print "Number of pages tracked: " + str(count)
         
         if current_page not in pages_tracked:
             pages_tracked.append(current_page)
