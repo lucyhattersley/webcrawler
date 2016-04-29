@@ -73,12 +73,11 @@ def find_domain(webpage):
     Accepts webpage [string] and removes the Protocol, Subdomain and Path. Returns domain [string]
     Example: if webpage is "http://news.google.com/world" then domain is "google.com"
     """
-    domain = webpage.split('/')[2]
     return domain
 
 def is_internal(link, start_page):
     """
-    THIS NEEDS FIXING. RETURNS FALSE FOR INTERNAL NEWS PAGES
+    NOTE: This is to be replaced with same_domain method (from webcrawler2.py)
     Checks webpage [string] against start_page [string]
     Passes both to find_domain [function] which strips them down to the URL domain (ie: www.google.com)
     Checks both domains against each other to find if they match.
@@ -99,7 +98,7 @@ def is_valid(link):
     Accepts link [string]
     Checks if link is empty, or a relative link (# or ?). Returns False
     Checks if link against skip_protocols [list]. Returns False.
-    Checks if end of link matches matches skip_extensions [list]. Returns false
+    Checks if end of link matches matches skip_extensions [list]. Returns False
     Returns True.
     """
     skip_extensions = ['jpg', 'jpeg', 'png', 'tiff', 'gif', 'apng', 'mng', 'svg', 'pdf', 'bmp', 'ico', 'xbm']
@@ -119,6 +118,13 @@ def is_valid(link):
     return True
 
 def robot_pass(page):
+    """
+    Accepts page [string]
+    Creates instance of RobotsCache (from reppy)
+    Passes page into .allowed method
+    Returns True of False
+
+    """
     robots = RobotsCache()
     return robots.allowed(page, '*')
 
@@ -142,7 +148,6 @@ def expand_link(link, start_page):
 
 def scan_website(start_page, max_pages):
     """
-    THIS NEEDS TO RESPOND TO ROBOTS.TXT FILE.
     Accepts start_page [string], a URL, and max_pages[int]
     Adds start_page to pages_to_track [list]. Then scans page for links and adds
     internal links to pages_to_track.
