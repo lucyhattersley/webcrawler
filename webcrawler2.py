@@ -6,14 +6,18 @@ import string
 
 class Site(object):
     def __init__(self, homepage):
-        self.homepage = homepage
-        print type(homepage)
-        self.pages_to_track = [homepage]
-        self.pages_tracked = []
-        self.all_pages = []
+        self.homepage = homepage # a Page object
+        self.pages_to_track = [homepage] # List of objects
+        self.pages_tracked = [] # List of url strings
+        self.all_links = [] # List of tuples (url,number of times linked to)
+        self.updatecount = 0
   
     def get_homepage(self):
         return self.homepage
+
+    def update_all_links(page_links):
+        print "add to all links ran"
+        return
 
     # This needs changing from ongoing scan
     # to single update
@@ -31,36 +35,42 @@ class Site(object):
         if len(self.pages_to_track) > 0:
             try:
                 current_page = self.pages_to_track.pop(0)
-                soup = self.get_soup(current_page)
-                page_links = self.scan_for_links(soup)
-                print "page_links", page_links
+                soup = current_page.get_soup()
+                page_links = current_page.scan_for_links()
                 self.add_to_all_links(page_links)
-                print self.all_links
-                internal_links = find_internal_links(page_links)
-                for page in internal_links:
-                    if page not in self.pages_tracked and page not in self.pages_to_track:
-                        if is_valid(page):
-                            self.pages_to_track.append(page)
+                
+                #PICKUP HERE 2016_04_29
+                # This code is replacing find_internal_links with same_domain
+                # Needs checking
+                for link in page_links:
+                    page = Page(link)
+                    if page.same_domain(self.homepage):
+                        internal_links.append(page)
+                #ADD INTERNAL LINKs THAT AREN'T IN PAGES TRACKED TO PAGES_TO_TRACK
+
+                print internal_links
+
             except:
                 pass # skips pages that don't respond
 
-            # count += 1
-            # print "Number of pages tracked: " + str(count)
-            
-            # if current_page.get_url() not in self.pages_tracked:
-            #     self.pages_tracked.append(current_page.get_url())
+            if current_page.get_url() not in self.pages_tracked:
+                self.pages_tracked.append(current_page.get_url())
         else:
             pass
-        return self.all_links
 
-    def add_to_all_links(page_links):
+        self.updatecount += 1
+        print "Updated " + str(self.updatecount) + " time(s)."
+
+        return
+
+
+    def add_to_all_links(self, page_links):
         """
         Accepts page_links [list] and all_links [list]
         Iterates through page_links and checks to see if the link is not already in all_links [list]. If it finds the link, increases the count by one.
         If not, appends link to all_links
         Returns all_links
         """
-        print "add_to_all_links ran"
         for link in page_links:
             link_found = False
             for sublist in self.all_links:
@@ -70,47 +80,7 @@ class Site(object):
                     break 
             if link_found == False:
                 self.all_links.append([link,1])
-        return
-
-    def get_soup(self,url):
-        """
-        Accepts url [string] containing a URL
-        Uses urllib2 to generate a request and respone
-        Creates a soup [Beautiful Soup instance] from the response using html.parser
-        Returns soup
-        """
-        request_headers = {
-        "Accept-Language": "en-US,en;q=0.5",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Referer": "http://thewebsite.com",
-        "Connection": "keep-alive" 
-        }
-        response = requests.get(url, headers=request_headers)
-        response.status_code
-        soup = BeautifulSoup(response.text, "html.parser")
-        return soup
-
-    def scan_for_links(self,soup):
-        """
-        Takes soup [Beautiful Soup object]
-        Finds all URLs in soup and adds to links [list]
-        Returns links
-        """
-        #soup = self.get_soup()
-        links = []
-        for link in soup.find_all('a'):
-            links.append(str(link.get('href')))
-
-        return links
-
-class Page(Site):
-    def __init__(self,url):
-        super(Page, self).__init__()
-        self.url = url
-    
-    def get_url(self):
-        return self.url
+        return 
 
     def find_internal_links(self):
         """
@@ -122,16 +92,24 @@ class Page(Site):
         page_links = self.scan_for_links()
         internal_links = []
         for link in page_links:
-            link = expand_link(link, start_page)
-            if is_internal(link, start_page):
+            link = self.expand_link(link, self.get_url())
+            if self.same_domain(link):
                 internal_links.append(link)
         return internal_links
+
+
+class Page(object):
+    def __init__(self,url):
+        self.url = url
+    
+    def get_url(self):
+        return self.url
 
     def expand_link(self,link, start_page):
         """
         Accepts link [string] and start_page [string] both containing URLs
         If link starts with a '/' (relative link) and adds start page to new_link [string] to create absolute path
-            Else if start_page [string] ends in '/',  strips the '/' it to prevent duplicate in path
+        Else if start_page [string] ends in '/',  strips the '/' it to prevent duplicate in path
         Returns new_link
         """
         if link == "":
@@ -145,40 +123,80 @@ class Page(Site):
             new_link = link
         return new_link
 
-
-    def is_internal(self,url):
+    def same_domain(self,other):
         """
-        THIS NEEDS FIXING. RETURNS FALSE FOR INTERNAL NEWS PAGES
-        Checks webpage [string] against start_page [string]
+        Checks to see if two pages [Page object] are from the same domain
         Passes both to find_domain [function] which strips them down to the URL domain (ie: www.google.com)
         Checks both domains against each other to find if they match.
         Returns True if they are from the same domain 
         """
-        homepage = self.get_homepage()
+        page1 = self.get_url()
+        page2 = other.get_url()
+
+        page1 = page1.split('.',1)[1] #split off protocal and subdomain
+        page2 = page2.split('.',1)[1] #split off protocal and subdomain
+
+        print page1
+        print page2
+
         try:
-            link_domain = self.find_domain(url)
-            return link_domain in homepage or homepage in link_domain
+            return page1 in page2 or page2 in page1
             # Uses 'or' to see if either domain fits inside the other.
-            # this ensures that google.com and www.google.com match regardless of which way around they are
+            # this ensures that google.com and www.google.com match regardless of order
 
         except:
             return False # if link not valid
 
-
-    def find_domain(self,url):
+    def find_domain(self):
         """
         Accepts webpage [string] and removes the Protocol, Subdomain and Path. Returns domain [string]
         Example: if webpage is "http://news.google.com/world" then domain is "google.com"
         """
-        domain = url.split('/')[2]
-        return domain
+        return self.get_url().split('/')[2]
+
+    def get_soup(self):
+        """
+        Accepts url [string] containing a URL
+        Uses urllib2 to generate a request and respone
+        Creates a soup [Beautiful Soup instance] from the response using html.parser
+        Returns soup
+        """
+        request_headers = {
+        "Accept-Language": "en-US,en;q=0.5",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Referer": "http://thewebsite.com",
+        "Connection": "keep-alive" 
+        }
+        url = self.get_url()
+        response = requests.get(url, headers=request_headers)
+        response.status_code
+        soup = BeautifulSoup(response.text, "html.parser")
+        return soup
+
+    def scan_for_links(self):
+        """
+        Takes soup [Beautiful Soup object]
+        Finds all URLs in soup and adds to links [list]
+        Returns links
+        """
+        soup = self.get_soup()
+        links = []
+        for link in soup.find_all('a'):
+            links.append(str(link.get('href')))
+
+        return links
 
 
 # Create site to track (us ing 'www.trustedreviews.com' as example)
 # This will be updated with websites.txt integration after a single site is working
-page = Page('http://www.trustedreviews.com')
+page = Page('https://en.wikipedia.org/wiki/Main_Page')
+page1 = Page('http://en.wikipedia.org')
+
 site = Site(page)
 
+site.update()
+site.update()
 
 
 
