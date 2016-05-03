@@ -4,6 +4,7 @@ import requests
 import time
 from reppy.cache import RobotsCache
 import sqlite3
+import os
 
 class Site(object):
     def __init__(self, homepage):
@@ -11,10 +12,37 @@ class Site(object):
         self.pages_to_track = [homepage] # List of Page objects
         self.pages_tracked = [] # List of url strings
 
+        # Start up sql database
+        # changes directory to dbase (inside app directory)
+        abspath = os.path.abspath(__file__)
+        dname = os.path.dirname(abspath)
+        os.chdir(dname + '/dbase/')
+
+        # Strips out domain name and adds '.db' to end as database file
+        homepage = homepage.get_url()
+        dbase = homepage.split('.')[1] + '.db'
+        
+        # create connection and c cursor (used to execute commands)
+        self.conn = sqlite3.connect(dbase)
+        self.c = self.conn.cursor()
+
+        # Drop table
+        print "Dropping table"
+        try:
+            self.c.execute("DROP TABLE site")
+        except:
+            pass
+
+        # Create table
+        self.c.execute("CREATE TABLE site (url TEXT, count INTEGER);")
+
+        # # Insert homepage
+        # self.c.execute("INSERT INTO site VAlUES (?, 1)",(homepage,))
+
     def update(self):
         page = self.pages_to_track.pop()
         while self.robot_pass(page) == False:
-            print "Robot blocked page" + page.get_url()
+            print "Robot blocked: " + page.get_url()
             page = self.pages_to_track.pop()
         print "Now tracking: " + page.get_url()
 
@@ -28,10 +56,15 @@ class Site(object):
                 if link not in pages_tracked:
                     site.set_page_tracked(link)
                     site.set_pages_to_track(self.expand_link(link))
-                    # print "Adding link to database" + str(link)
+                    self.c.execute("INSERT INTO site VAlUES (?, 1)",(link,))
+                    self.conn.commit()
                 else:
-                    pass
-                    # print "Updating database with: " + str(link)
+                    self.c.execute("SELECT * FROM site WHERE url=?",(link,))
+                    data = self.c.fetchone()
+                    value = list(data)[1]
+                    value += 1
+                    self.c.execute("UPDATE site SET count=? WHERE url=?",(value,link))
+                    self.conn.commit()
 
     def get_homepage(self):
         return self.homepage.get_url()
@@ -203,10 +236,16 @@ class Page(object):
 
 
 # test code
-page = Page('http://www.nytimes.com')
+page = Page('http://www.macworld.co.uk')
 site = Site(page)
 
-site.update()
+i = 0
+while i < 100:
+    time.sleep(2)
+    site.update()
+    i += 1
 
+#close site
+site.conn.close()
 
 
