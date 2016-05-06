@@ -52,10 +52,10 @@ class Site(object):
         while len(internal_links) > 0:
             link = internal_links.pop()
             if page.is_valid(link):
-                site.expand_link(link)
+                self.expand_link(link)
                 if link not in pages_tracked:
-                    site.set_page_tracked(link)
-                    site.set_pages_to_track(self.expand_link(link))
+                    self.set_page_tracked(link)
+                    self.set_pages_to_track(self.expand_link(link))
                     self.c.execute("INSERT INTO site VAlUES (?, 1)",(link,))
                     self.conn.commit()
                 else:
@@ -232,20 +232,4 @@ class Page(object):
                 return False
         
         return True
-
-
-
-# test code
-page = Page('http://www.macworld.co.uk')
-site = Site(page)
-
-i = 0
-while i < 100:
-    time.sleep(2)
-    site.update()
-    i += 1
-
-#close site
-site.conn.close()
-
 
