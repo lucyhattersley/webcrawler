@@ -1,7 +1,7 @@
 from robot import *
 
+# Gets list of websites from text document and sets up objects
 sites = []
-
 with open('websites.txt', "r") as f:
     for line in f:
         line = line.strip("\n")
@@ -9,16 +9,21 @@ with open('websites.txt', "r") as f:
         site = Site(page)
         sites.append(site)
 
-i = 0
-while i < 2:
-    for site in sites:
-        start = time.time()
-        site.update()
-        end = time.time()
-        while (end - start) < 2:
-            end = time.time()
-            print end - start
-    i += 1
+# Loops through each site ibhect for MAX_TRACK number of pages
+count = 0
+MAX_TRACK = 3
 
-#close site
-#site.conn.close()
+while count < MAX_TRACK:
+    start = time.time()
+    for site in sites:
+            site.update()
+
+    # Delays for two seconds before running through sites again (robot compliance)
+    while time.time() < (start + 2):
+        pass
+
+    count += 1
+
+#close sites
+for site in sites:
+    site.conn.close()
