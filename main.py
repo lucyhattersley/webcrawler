@@ -11,12 +11,15 @@ with open('websites.txt', "r") as f:
 
 # Loops through each site ibhect for MAX_TRACK number of pages
 count = 0
-MAX_TRACK = 3
+MAX_TRACK = 2
 
 while count < MAX_TRACK:
     start = time.time()
     for site in sites:
+        try:
             site.update()
+        except:
+            pass
 
     # Delays for two seconds before running through sites again (robot compliance)
     while time.time() < (start + 2):

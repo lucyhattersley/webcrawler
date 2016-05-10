@@ -12,22 +12,21 @@ class Site(object):
         self.pages_to_track = [homepage] # List of Page objects
         self.pages_tracked = [] # List of url strings
 
-        # Start up sql database
-        # changes directory to dbase (inside app directory)
+        # SETTING UP SQL database
+        # Changing directory to dbase (inside app directory)
         abspath = os.path.abspath(__file__)
         dname = os.path.dirname(abspath)
         os.chdir(dname + '/dbase/')
 
-        # Strips out domain name and adds '.db' to end as database file
+        # Strips out http:// and dots from domain name and adds '.db' to end as database file
         homepage = homepage.get_url()
-        dbase = homepage.split('.')[1] + '.db'
-        
-        # create connection and c cursor (used to execute commands)
+        dbase = ''.join(homepage.split('.')[1:]) + '.db'
+
+        # Create connection and c cursor (used to execute commands)
         self.conn = sqlite3.connect(dbase)
         self.c = self.conn.cursor()
 
-        # Drop table
-        print "Dropping table"
+        # Clear database if it already exists
         try:
             self.c.execute("DROP TABLE site")
         except:
@@ -36,10 +35,16 @@ class Site(object):
         # Create table
         self.c.execute("CREATE TABLE site (url TEXT, count INTEGER);")
 
-        # # Insert homepage
-        # self.c.execute("INSERT INTO site VAlUES (?, 1)",(homepage,))
-
     def update(self):
+        """
+        Pops a page from the pages_to_track [list]
+        Finds all the links in that page
+        If the link is not in pages_tracked
+            Adds new links to the database (with the value 1)
+        Else
+            Updates link count in database by 1
+        Adds link to pages_tracked 
+        """
         page = self.pages_to_track.pop()
         while self.robot_pass(page) == False:
             print "Robot blocked: " + page.get_url()
@@ -108,8 +113,7 @@ class Site(object):
         Accepts page [object]
         Creates instance of RobotsCache (from reppy)
         Passes URL of page as string into robots.allowed method
-        Returns True of False
-
+        Returns True or False
         """
         robots = RobotsCache()
         return robots.allowed(page.get_url(), '*')
@@ -123,8 +127,8 @@ class Page(object):
 
     def get_links(self):
         """
+        Accepts soup [Beautiful Soup object]
         Finds all URLs in soup and adds to links [list]
-        Takes soup [Beautiful Soup object]
         Returns links
         """
         soup = self.get_soup()
@@ -136,9 +140,10 @@ class Page(object):
 
     def get_internal_links(self):
         """
-        Accepts page_links [list] containing URLs and start_page [string] containing the root of the search
-        Iterates through page links passed each link to is_internal [function]. This returns True if link domain matches start_page
-        Amends links that return True to internal_links [list]
+        Uses get_links method to get all links
+        Uses get_domain method to find domain page
+        If link is_valid and if it matches domain
+            adds link to internal_links [list]
         Returns internal_links
         """
         internal_links = []
@@ -152,18 +157,16 @@ class Page(object):
 
     def get_domain(self):
         """
-        Accepts webpage [string] and removes the Protocol, Subdomain and Path. Returns domain [string]
+        Removes the Protocol, Subdomain and Path and returns as a string
         Example: if webpage is "http://news.google.com/world" then domain is "google.com"
         """
         return self.get_url().split('/')[2]
 
-
     def same_domain(self,other):
         """
-        Checks to see if two pages [Page object] are from the same domain
-        Passes both to find_domain [function] which strips them down to the URL domain (ie: www.google.com)
-        Checks both domains against each other to find if they match.
-        Returns True if they are from the same domain 
+        Accepts other [Page object]
+        Checks to see if self and other belong to the same domain
+        Returns True or False
         """
         page1 = self.get_url()
         page2 = other.get_url()
@@ -182,17 +185,8 @@ class Page(object):
         except:
             return False # if link not valid
 
-    def find_domain(self):
-        """
-        Accepts webpage [string] and removes the Protocol, Subdomain and Path. Returns domain [string]
-        Example: if webpage is "http://news.google.com/world" then domain is "google.com"
-        """
-        return self.get_url().split('/')[2]
-
     def get_soup(self):
         """
-        Accepts webpage [string] containing a URL
-        Uses urllib2 to generate a request and respone
         Creates a soup [Beautiful Soup instance] from the response using html.parser
         Returns soup
         """
@@ -212,10 +206,10 @@ class Page(object):
     def is_valid(self, link):
         """
         Accepts link [string]
-        Checks if link is empty, or a relative link (# or ?). Returns False
-        Checks if link against skip_protocols [list]. Returns False.
-        Checks if end of link matches matches skip_extensions [list]. Returns False
-        Returns True.
+        If link is empty, or a relative link (# or ?). Returns False
+        If link against skip_protocols [list]. Returns False.
+        If end of link matches matches skip_extensions [list]. Returns False
+        Else returns True.
         """
         skip_extensions = ['jpg', 'jpeg', 'png', 'tiff', 'gif', 'apng', 'mng', 'svg', 'pdf', 'bmp', 'ico', 'xbm']
         skip_protocols = ['feed' 'ftp', 'rss']
@@ -232,4 +226,3 @@ class Page(object):
                 return False
         
         return True
-
