@@ -18,9 +18,10 @@ class Site(object):
         dname = os.path.dirname(abspath)
         os.chdir(dname + '/dbase/')
 
-        # Strips out http:// and dots from domain name and adds '.db' to end as database file
+        # Strips out http:// and dots and slash from domain name and adds '.db' to end as database file
         homepage = homepage.get_url()
         dbase = ''.join(homepage.split('.')[1:]) + '.db'
+        dbase = dbase.replace('/','')
 
         # Create connection and c cursor (used to execute commands)
         self.conn = sqlite3.connect(dbase)

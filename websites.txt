@@ -1,2 +1,1 @@
-http://www.techworld.com
-http://www.techworld.co.uk
+https://www.theguardian.com/uk/technology
